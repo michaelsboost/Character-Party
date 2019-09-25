@@ -1,0 +1,22 @@
+.table {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.character {
+  display: inline-block;
+  text-transform: capitalize;
+  text-align: left;
+  width: 50%;
+}
+@media (max-width: 768px) {
+  .character {
+    width: 100%;
+  }
+}
+
+/* misc */
+.wauto {
+  width: auto;
+}
