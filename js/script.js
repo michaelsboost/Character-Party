@@ -1,54 +1,55 @@
-var str, ranMood, ranJob, ranJSONItem, grabJSObj, output, 
+var str, ranMood, moodLink, ranJob, ranJSONItem, grabJSObj, output, 
     moodsJSON   = [
-      "an angry",
-      "an ambitious",
-      "an energized",
-      "an energetic",
-      "an exhilarated",
-      "an exhausted",
-      "an exhilarated",
-      "an exhausted",
-      "an idyllic",
-      "an intelligent",
-      "an ominous",
-      "a blind",
-      "a calm",
-      "a cheerful",
-      "a creepy",
-      "a clumsy",
-      "a depressed",
-      "a disabled",
-      "a fearful",
-      "a geeky",
-      "a gigantic",
-      "a gloomy",
-      "a greedy",
-      "a hopeful",
-      "a humorous",
-      "a large",
-      "a lighthearted",
-      "a lonely", 
-      "a mad",
-      "a melancholy",
-      "a mysterious",
-      "a nerdy",
-      "a one-legged",
-      "a reflective",
-      "a relaxed",
-      "a romantic",
-      "a sad",
-      "a sleepy",
-      "a small",
-      "a smart",
-      "a sneaky",
-      "a strict",
-      "a strong",
-      "a tense",
-      "a thrilled",
-      "a tiny",
-      "a tired",
-      "a whimsical",
-      "a battle damaged hero"
+      "angry",
+      "ambitious",
+      "energized",
+      "energetic",
+      "exhilarated",
+      "exhausted",
+      "exhilarated",
+      "exhausted",
+      "idyllic",
+      "intelligent",
+      "ominous",
+      "battle damaged hero",
+      "blind",
+      "calm",
+      "cheerful",
+      "creepy",
+      "clumsy",
+      "depressed",
+      "disabled",
+      "fearful",
+      "geeky",
+      "gigantic",
+      "gloomy",
+      "greedy",
+      "hero",
+      "hopeful",
+      "humorous",
+      "large",
+      "lighthearted",
+      "lonely", 
+      "mad",
+      "melancholy",
+      "mysterious",
+      "nerdy",
+      "one-legged",
+      "reflective",
+      "relaxed",
+      "romantic",
+      "sad",
+      "sleepy",
+      "small",
+      "smart",
+      "sneaky",
+      "strict",
+      "strong",
+      "tense",
+      "thrilled",
+      "tiny",
+      "tired",
+      "whimsical"
     ],
     jobsJSON    = [
       "secret vigilante",
@@ -2168,6 +2169,7 @@ function testAnim(el, x) {
 function init() {
   ranMood     = randomNumber(moodsJSON.length);
   ranMood     = moodsJSON[ranMood];
+  moodLink    = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ ranMood.replace(/ /, '+') +"+mood&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
   ranJob      = randomNumber(jobsJSON.length);
   ranJob      = jobsJSON[ranJob];
   ranJSONItem = JSONItems[randomNumber(JSONItems.length)];
@@ -2176,6 +2178,14 @@ function init() {
   
   // with duckduckgo images search link
   output      = output + " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ output.replace(/ /, '+') +"&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  
+  // detect if mood starts with a vowel or not
+  str = ranMood.substring(0, 1).toLowerCase();
+  if (str === "a" || str === "e" || str === "i" || str === "o" || str === "u") {
+    ranMood = "an " + ranMood;
+  } else {
+    ranMood = "a " + ranMood;
+  }
   
   // detect if job starts with a vowel or not
   str = ranJob.substring(0, 1).toLowerCase();
@@ -2186,8 +2196,8 @@ function init() {
   }
   
   // generate character to draw
-  character.innerHTML = ranMood + " " + output;
-  scenario.innerHTML = "Category: " + ranJSONItem + "<br>Draw: " + ranMood + " " + output + "<br>Who is " + ranJob + "<br>&nbsp;";
+  character.innerHTML = ranMood + moodLink + " " + output;
+  scenario.innerHTML = "Category: " + ranJSONItem + "<br>Draw: " + ranMood + moodLink + " " + output + "<br>Who is " + ranJob + "<br>&nbsp;";
   return false;
 }
 
