@@ -22,7 +22,7 @@ MIT
 To-Do
 -------------
 
-Make jobs singular not plural (S/T left to do)
+Make jobs singular not plural (T left to do)
 
 Tech
 -------------
