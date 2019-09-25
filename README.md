@@ -22,7 +22,7 @@ MIT
 To-Do
 -------------
 
-Make jobs singular not plural (finished A/B/C/D/E/F/G/H)
+Make jobs singular not plural (finished A/B/C/D/E/F/G/H/I)
 
 Tech
 -------------
