@@ -1,4 +1,4 @@
-var str, ranMood, ranJob, ranJSONItem, grabJSObj, grabItem, output, 
+var str, ranMood, ranJob, ranJSONItem, grabJSObj, output, 
     moodsJSON   = [
       "an angry",
       "an ambitious",
@@ -39,6 +39,7 @@ var str, ranMood, ranJob, ranJSONItem, grabJSObj, grabItem, output,
       "a sleepy",
       "a small",
       "a smart",
+      "a sneaky",
       "a strict",
       "a strong",
       "a tense",
@@ -1692,7 +1693,7 @@ var str, ranMood, ranJob, ranJSONItem, grabJSObj, grabItem, output,
         "papillion",
         "bichon frise",
         "border collie",
-        "west highland whiite terrier",
+        "west highland white terrier",
         "whippet",
         "austrialian shepherd",
         "sarabi mastiff",
@@ -2164,8 +2165,16 @@ function init() {
   ranJob      = jobsJSON[ranJob];
   ranJSONItem = JSONItems[randomNumber(JSONItems.length)];
   grabJSObj   = designJSONS[""+ ranJSONItem +""];
-  grabItem    = grabJSObj[ randomNumber(grabJSObj.length) ];
-  output      = grabItem;
+  output      = grabJSObj[ randomNumber(grabJSObj.length) ];
+  
+  // with google search link
+  // output      = output + " <a class=\"whitetxt underline\" href=\"https://www.google.com/search?hl=&site=&q="+ output.replace(/ /, '+') +"\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  
+  // with google images search link
+  // output      = output + " <a class=\"whitetxt\" href=\"https://www.google.com/search?hl=&site=&q="+ output.replace(/ /, '+') +"&sxsrf=ACYBGNR7uVcHQZZ3HWvMtrVwks8KNKBlOA:1569449614691&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjn3pq2_-zkAhUInKwKHfe9A78Q_AUIEigB&biw=1280&bih=611\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  
+  // with duckduckgo images search link
+  output      = output + " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ output.replace(/ /, '+') +"&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
   
   // detect if job starts with a vowel or not
   str = ranJob.substring(0, 1).toLowerCase();
