@@ -1721,8 +1721,9 @@ var str, ranMood, ranJob, ranJSONItem, grabJSObj, grabItem, output,
       "Zoologists"
     ],
     designJSONS = {
-      "standard": [
+      "standard":   [
         "ghost",
+        "alien",
         "man",
         "woman",
         "boy",
