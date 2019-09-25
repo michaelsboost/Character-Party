@@ -127,7 +127,6 @@ var str, ranMood, ranJob, ranJSONItem, grabJSObj, output,
       "Astronomer (Physicist)",
       "Athlete",
       "Auctioneer",
-      "Auctioneer, and Stock and Station Agent",
       "Audiologist",
       "Audiologist and Speech Pathologist",
       "Audiometrist",
@@ -1989,7 +1988,7 @@ var str, ranMood, ranJob, ranJSONItem, grabJSObj, output,
         "coral reef snake",
         "anilius"
       ],
-      "fishs":      [
+      "fish":       [
         "fish",
         "shark",
         "whale",
@@ -2150,13 +2149,20 @@ var str, ranMood, ranJob, ranJSONItem, grabJSObj, output,
       "reptiles",
       "amphibians",
       "snakes",
-      "fishs"
+      "fish"
     ];
 
 // generate a random number
 function randomNumber(n) {
-  return Math.round( Math.random() * n );
+  return Math.floor( Math.random() * n );
 }
+
+// add/remove animateCSS animations
+function testAnim(el, x) {
+  $("#" + el).removeClass().addClass(x).one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function(){
+    $(this).removeClass();
+  });
+};
 
 function init() {
   ranMood     = randomNumber(moodsJSON.length);
@@ -2166,12 +2172,6 @@ function init() {
   ranJSONItem = JSONItems[randomNumber(JSONItems.length)];
   grabJSObj   = designJSONS[""+ ranJSONItem +""];
   output      = grabJSObj[ randomNumber(grabJSObj.length) ];
-  
-  // with google search link
-  // output      = output + " <a class=\"whitetxt underline\" href=\"https://www.google.com/search?hl=&site=&q="+ output.replace(/ /, '+') +"\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
-  
-  // with google images search link
-  // output      = output + " <a class=\"whitetxt\" href=\"https://www.google.com/search?hl=&site=&q="+ output.replace(/ /, '+') +"&sxsrf=ACYBGNR7uVcHQZZ3HWvMtrVwks8KNKBlOA:1569449614691&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjn3pq2_-zkAhUInKwKHfe9A78Q_AUIEigB&biw=1280&bih=611\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
   
   // with duckduckgo images search link
   output      = output + " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ output.replace(/ /, '+') +"&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
@@ -2186,11 +2186,18 @@ function init() {
   
   // generate character to draw
   character.innerHTML = ranMood + " " + output;
-  scenario.innerHTML = "Category: " + ranJSONItem + "<br>Draw: " + ranMood + " " + output + "<br>Who's job is " + ranJob + "<br>&nbsp;";
+  scenario.innerHTML = "Category: " + ranJSONItem + "<br>Draw: " + ranMood + " " + output + "<br>Who is " + ranJob + "<br>&nbsp;";
   return false;
 }
+
+// initiate animation and character generation
+testAnim("character", "animated rubberBand delay-2s");
+testAnim("scenario", "animated pulse delay-2s");
 init();
 
+// generate character and reset animation upon button click
 generate.onclick = function() {
+  testAnim("character", "animated rubberBand delay-2s");
+  testAnim("scenario", "animated bounce delay-2s");
   init();
 };

@@ -1,3 +1,7 @@
+a {
+  cursor: pointer;
+}
+
 .table {
   position: absolute;
   top: 0;
@@ -14,19 +18,20 @@
   box-shadow: inset 0 0 0 100em rgba(255, 255, 255, 0.2);
 }
 
-.character {
+#character, #scenario {
   display: inline-block;
   text-transform: capitalize;
-  text-align: left;
+  color: #fff;
+}
+#character {
+  width: auto;
+}
+#scenario {
   width: 50%;
+  text-align: left;
 }
 @media (max-width: 768px) {
-  .character {
+  #character, #scenario {
     width: 100%;
   }
-}
-
-/* misc */
-.wauto {
-  width: auto;
 }
