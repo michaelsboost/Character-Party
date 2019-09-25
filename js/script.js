@@ -1,4 +1,4 @@
-var str, ranMood, moodLink, ranJob, ranJSONItem, grabJSObj, output, 
+var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, grabJSObj, output, 
     moodsJSON   = [
       "angry",
       "ambitious",
@@ -2172,6 +2172,7 @@ function init() {
   moodLink    = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ ranMood.replace(/ /, '+') +"+mood&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
   ranJob      = randomNumber(jobsJSON.length);
   ranJob      = jobsJSON[ranJob];
+  jobLink     = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+a+"+ ranJob.toLowerCase().replace(/ /, '+') +"%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
   ranJSONItem = JSONItems[randomNumber(JSONItems.length)];
   grabJSObj   = designJSONS[""+ ranJSONItem +""];
   output      = grabJSObj[ randomNumber(grabJSObj.length) ];
@@ -2197,7 +2198,7 @@ function init() {
   
   // generate character to draw
   character.innerHTML = ranMood + moodLink + " " + output;
-  scenario.innerHTML = "Category: " + ranJSONItem + "<br>Draw: " + ranMood + moodLink + " " + output + "<br>Who is " + ranJob + "<br>&nbsp;";
+  scenario.innerHTML = "Category: " + ranJSONItem + "<br>Draw: " + ranMood + moodLink + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
   return false;
 }
 
