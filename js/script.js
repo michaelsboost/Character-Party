@@ -133,6 +133,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, grabJSObj, output,
       "motivated",
       "mysterious",
       "naked",
+      "narcissistic",
       "neat",
       "nerdy",
       "nostalgic",
@@ -158,6 +159,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, grabJSObj, output,
       "pretty",
       "professional",
       "proud",
+      "psychopath",
       "pumped calm",
       "puzzled",
       "ragged",
@@ -1851,7 +1853,8 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, grabJSObj, output,
         "witch",
         "golem",
         "buddhist",
-        "god"
+        "god",
+        "fighter"
       ],
       "dogs":       [
         "dog",
@@ -2369,7 +2372,7 @@ function testAnim(el, x) {
 function init() {
   ranMood     = randomNumber(moodsJSON.length);
   ranMood     = moodsJSON[ranMood];
-  moodLink    = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ ranMood.replace(/ /, '+') +"+mood&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  moodLink    = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ ranMood.replace(/ /, '+') +"+characteristic&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
   ranJob      = randomNumber(jobsJSON.length);
   ranJob      = jobsJSON[ranJob];
   jobLink     = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+a+"+ ranJob.toLowerCase().replace(/ /, '+') +"%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
