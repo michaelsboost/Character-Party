@@ -5,7 +5,7 @@
 // This is Character Party (https://michaelsboost.github.io/Character-Party/), Created for those that need an idea for a character to make
 
 var str, ranMood, moodLink, jobLink, ranJob,
-    ranJSONItem, grabJSObj, output, playMusic,
+    ranJSONItem, categoryLink, grabJSObj, output, playMusic,
     moodsJSON   = [
       "accomplished",
       "admiring",
