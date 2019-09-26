@@ -5,7 +5,7 @@
 // This is Character Party (https://michaelsboost.github.io/Character-Party/), Created for those that need an idea for a character to make
 
 var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, grabJSObj, output, 
-    moodsJSON   = [
+    moodsJSON    = [
       "accomplished",
       "admiring",
       "aggravated",
@@ -241,7 +241,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, grabJSObj, output,
       "worried",
       "worse"
     ],
-    jobsJSON    = [
+    jobsJSON     = [
       "secret vigilante",
       "juggler",
       "burglar",
@@ -1837,7 +1837,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, grabJSObj, output,
       "Zookeeper",
       "Zoologist"
     ],
-    designJSONS = {
+    designJSONS  = {
       "misc":       [
         "man",
         "woman",
@@ -2372,7 +2372,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, grabJSObj, output,
         "hector's beaked whale"
       ]
     },
-    JSONItems   = [
+    JSONItems    = [
       "standard",
       "dogs",
       "felidae",
@@ -2387,7 +2387,12 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, grabJSObj, output,
       "amphibians",
       "snakes",
       "fish"
-    ];
+    ],
+    audioElement = document.createElement("audio"),
+    bgMusic      = function() {
+      audioElement.setAttribute("src", "https://michaelsboost.com/Character-Party/media/music.mp3");
+      audioElement.play();
+    };
 
 // generate a random number
 function randomNumber(n) {
@@ -2401,6 +2406,7 @@ function testAnim(el, x) {
   });
 };
 
+// initialize character generation
 function init() {
   ranMood     = randomNumber(moodsJSON.length);
   ranMood     = moodsJSON[ranMood];
@@ -2436,6 +2442,9 @@ function init() {
   scenario.innerHTML = "Category: " + ranJSONItem + "<br>Draw: " + ranMood + moodLink + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
   return false;
 }
+
+// initialize background music
+// bgMusic();
 
 // initiate animation and character generation
 testAnim("character", "animated rubberBand delay-2s");
