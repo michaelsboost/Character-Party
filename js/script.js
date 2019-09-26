@@ -4,8 +4,8 @@
 // 
 // This is Character Party (https://michaelsboost.github.io/Character-Party/), Created for those that need an idea for a character to make
 
-var str, ranMood, moodLink, jobLink, ranJob,
-    ranJSONItem, categoryLink, grabJSObj, output, playMusic, ranColor,
+var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
+    grabJSObj, output, playMusic, ranColor, ranFeats,
     moodsJSON   = [
       "accomplished",
       "admiring",
@@ -1934,7 +1934,9 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "cup of chocolate milk",
         "shoe",
         "suitcase",
-        "vacuum"
+        "vacuum",
+        "jacket",
+        "coat"
       ],
       "dogs":           [
         "dog",
@@ -2703,6 +2705,18 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "black",
       "white",
       "rainbow"
+    ],
+    onFeatures  = [
+      "eyed",
+      "shirt wearing",
+      "skirt wearing",
+      "dress wearing",
+      "swimsuit wearing",
+      "pants wearing",
+      "socks wearing",
+      "shoes wearing",
+      "jacket wearing",
+      "coat wearing"
     ];
 
 // generate a random number
@@ -2721,6 +2735,8 @@ function testAnim(el, x) {
 function init() {
   ranColor     = randomNumber(colorsJSON.length);
   ranColor     = colorsJSON[ranColor];
+  ranFeats     = randomNumber(onFeatures.length);
+  ranFeats     = onFeatures[ranFeats];
   ranMood      = randomNumber(moodsJSON.length);
   ranMood      = moodsJSON[ranMood];
   moodLink     = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ ranMood.replace(/ /, '+') +"+characteristic&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
@@ -2753,7 +2769,7 @@ function init() {
   
   // generate character to draw
   character.innerHTML = ranMood + moodLink + " " + output;
-  scenario.innerHTML = "Category: " + ranJSONItem + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + ranColor + " eyed " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
+  scenario.innerHTML = "Category: " + ranJSONItem + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + ranColor + " " + ranFeats + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
 
   // sample for screenshot
 //  character.innerHTML = "A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
