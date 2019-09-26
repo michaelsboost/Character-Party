@@ -2772,8 +2772,8 @@ function init() {
   }
   
   // randomly choose what to show
-  yesOrNo      = randomNumber(yesOrNoJSON.length);
-  yesOrNo      = yesOrNoJSON[yesOrNo];
+  yesOrNo = randomNumber(yesOrNoJSON.length);
+  yesOrNo = yesOrNoJSON[yesOrNo];
   str = yesOrNo.toLowerCase();
   if (str === "yes") {
     outputFeat = ranColor + " " + ranFeats;
