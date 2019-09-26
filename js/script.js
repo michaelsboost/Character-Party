@@ -5,7 +5,7 @@
 // This is Character Party (https://michaelsboost.github.io/Character-Party/), Created for those that need an idea for a character to make
 
 var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
-    grabJSObj, output, playMusic, ranColor, ranFeats,
+    grabJSObj, output, playMusic, ranColor, ranFeats, yesOrNo, outputFeat,
     moodsJSON   = [
       "accomplished",
       "admiring",
@@ -2717,6 +2717,10 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "shoes wearing",
       "jacket wearing",
       "coat wearing"
+    ],
+    yesOrNoJSON = [
+      "yes",
+      "no"
     ];
 
 // generate a random number
@@ -2733,6 +2737,8 @@ function testAnim(el, x) {
 
 // character generation
 function init() {
+  yesOrNo      = randomNumber(yesOrNoJSON.length);
+  yesOrNo      = yesOrNoJSON[yesOrNo];
   ranColor     = randomNumber(colorsJSON.length);
   ranColor     = colorsJSON[ranColor];
   ranFeats     = randomNumber(onFeatures.length);
@@ -2767,9 +2773,17 @@ function init() {
     ranJob = "a " + ranJob;
   }
   
+  // detect yes or no which decides what to show
+  str = yesOrNo.toLowerCase();
+  if (str === "yes") {
+    outputFeat = ranColor + " " + ranFeats;
+  } else {
+    outputFeat = "";
+  }
+  
   // generate character to draw
   character.innerHTML = ranMood + moodLink + " " + output;
-  scenario.innerHTML = "Category: " + ranJSONItem + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + ranColor + " " + ranFeats + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
+  scenario.innerHTML = "Category: " + ranJSONItem + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + outputFeat + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
 
   // sample for screenshot
 //  character.innerHTML = "A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
