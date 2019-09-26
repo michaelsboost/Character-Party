@@ -132,6 +132,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, grabJSObj, output,
       "missing",
       "motivated",
       "mysterious",
+      "naked",
       "neat",
       "nerdy",
       "nostalgic",
@@ -2376,7 +2377,7 @@ function init() {
   output      = grabJSObj[ randomNumber(grabJSObj.length) ];
   
   // with duckduckgo images search link
-  output      = output + " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ output.replace(/ /, '+') +"&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  output      = output + " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ output.replace(/ /, '+') +"+"+ ranJSONItem +"&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
   
   // detect if mood starts with a vowel or not
   str = ranMood.substring(0, 1).toLowerCase();
