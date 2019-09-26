@@ -1931,7 +1931,8 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "cup of tea",
         "gallon of milk",
         "cup of milk",
-        "cup of chocolate milk"
+        "cup of chocolate milk",
+        "shoe"
       ],
       "dogs":           [
         "dog",
