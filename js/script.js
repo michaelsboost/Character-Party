@@ -5,7 +5,7 @@
 // This is Character Party (https://michaelsboost.github.io/Character-Party/), Created for those that need an idea for a character to make
 
 var str, ranMood, moodLink, jobLink, ranJob,
-    ranJSONItem, categoryLink, grabJSObj, output, playMusic,
+    ranJSONItem, categoryLink, grabJSObj, output, playMusic, ranColor,
     moodsJSON   = [
       "accomplished",
       "admiring",
@@ -2719,6 +2719,8 @@ function testAnim(el, x) {
 
 // character generation
 function init() {
+  ranColor     = randomNumber(colorsJSON.length);
+  ranColor     = colorsJSON[ranColor];
   ranMood      = randomNumber(moodsJSON.length);
   ranMood      = moodsJSON[ranMood];
   moodLink     = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ ranMood.replace(/ /, '+') +"+characteristic&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
@@ -2751,7 +2753,7 @@ function init() {
   
   // generate character to draw
   character.innerHTML = ranMood + moodLink + " " + output;
-  scenario.innerHTML = "Category: " + ranJSONItem + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
+  scenario.innerHTML = "Category: " + ranJSONItem + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + ranColor + " eyed " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
 
   // sample for screenshot
 //  character.innerHTML = "A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
