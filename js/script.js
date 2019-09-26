@@ -2486,6 +2486,11 @@ function init() {
   // generate character to draw
   character.innerHTML = ranMood + moodLink + " " + output;
   scenario.innerHTML = "Category: " + ranJSONItem + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
+
+  // sample for screenshot
+//  character.innerHTML = "A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+//  scenario.innerHTML = "Category: Dogs <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+dogs%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>" + "<br>Draw: A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> <br>Who is a security officer <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+security+officer+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a><br>&nbsp;";
+  
   return false;
 }
 
