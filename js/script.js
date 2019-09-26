@@ -1936,7 +1936,9 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "suitcase",
         "vacuum",
         "jacket",
-        "coat"
+        "coat",
+        "toilet",
+        "shower"
       ],
       "dogs":           [
         "dog",
