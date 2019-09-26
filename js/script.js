@@ -2419,6 +2419,35 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "satellite",
         "alien",
         "black hole"
+      ],
+      "chairs":         [
+        "sofa",
+        "park bench",
+        "upholstered bench",
+        "armchair",
+        "cantilever chair",
+        "wing chair",
+        "deck chair",
+        "desk chair",
+        "barber chair",
+        "salon chair",
+        "operator chair",
+        "executive chair",
+        "garden chair",
+        "director’s chair",
+        "chair",
+        "folding chair",
+        "throne",
+        "ladderback chair",
+        "stool",
+        "windsor chair",
+        "wheelchair",
+        "waiting room seat",
+        "wooden outdoor chair",
+        "adirondack chair (U.S.)",
+        "student chair",
+        "dining room chair",
+        "wood chair"
       ]
     },
     JSONItems   = [
@@ -2436,7 +2465,8 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "amphibians",
       "snakes",
       "fish",
-      "solar system"
+      "solar system",
+      "chairs"
     ];
 
 // generate a random number
