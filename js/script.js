@@ -1932,7 +1932,9 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "gallon of milk",
         "cup of milk",
         "cup of chocolate milk",
-        "shoe"
+        "shoe",
+        "suitcase",
+        "vacuum"
       ],
       "dogs":           [
         "dog",
