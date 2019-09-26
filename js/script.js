@@ -1,3 +1,9 @@
+// Version: 0.0.1
+// Character Party, copyright (c) by Michael Schwartz and others
+// Distributed under an MIT license: https://github.com/michaelsboost/Character-Party/blob/gh-pages/LICENSE
+// 
+// This is Character Party (https://michaelsboost.github.io/Character-Party/), Created for those that need an idea for a character to make
+
 var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, grabJSObj, output, 
     moodsJSON   = [
       "accomplished",
