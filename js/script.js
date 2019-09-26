@@ -1884,7 +1884,9 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, grabJSObj, output,
         "buddhist",
         "god",
         "fighter",
-        "monster"
+        "monster",
+        "ogre",
+        "donkey"
       ],
       "dogs":       [
         "dog",
