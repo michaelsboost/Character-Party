@@ -1871,7 +1871,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "Zoologist"
     ],
     designJSONS = {
-      "misc":           [
+      "misc":                 [
         "man",
         "woman",
         "boy",
@@ -1891,6 +1891,15 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "giraffe",
         "hyrax",
         "cape bushbuck",
+        "koala",
+        "unicorn",
+        "shrimp",
+        "kangaroo",
+        "cactus",
+        "tree",
+        "sea shell",
+        "star",
+        "snowperson",
         
         "ghost",
         "alien",
@@ -1964,7 +1973,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "spoon",
         "fork"
       ],
-      "dogs":           [
+      "dogs":                 [
         "dog",
         "labrador retriever",
         "pug",
@@ -2019,7 +2028,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "miniature pinscher",
         "african wild dog"
       ],
-      "felidae":        [
+      "felidae":              [
         "cat",
         "lion",
         "tiger",
@@ -2064,7 +2073,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "siamese cat",
         "sphynx cat"
       ],
-      "wolfs":          [
+      "wolfs":                [
         "wolf",
         "arctic wolf",
         "northwestern wolf",
@@ -2083,7 +2092,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "arabian wolf",
         "alaskan tundra wolf"
       ],
-      "bears":          [
+      "bears":                [
         "bear",
         "polar bear",
         "brown bear",
@@ -2118,7 +2127,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "gobi bear",
         "new mexico black bear"
       ],
-      "rodents":        [
+      "rodents":              [
         "rabbit",
         "squirrel",
         "mouse",
@@ -2143,7 +2152,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "flying mouse",
         "flying squirrel"
       ],
-      "birds":          [
+      "birds":                [
         "hawk",
         "red-tailed hawk",
         "cooper's hawk",
@@ -2227,14 +2236,14 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "rooster",
         "firefinch"
       ],
-      "parrots":        [
+      "parrots":              [
         "parrot",
         "cockatoo",
         "lovebird",
         "macaw",
         "new zealand parrot (Strigopidae)"
       ],
-      "insects":        [
+      "insects":              [
         "beetle",
         "bee",
         "wasp",
@@ -2258,7 +2267,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "lice",
         "booklice"
       ],
-      "arthropods":     [
+      "arthropods":           [
         "spider",
         "crustaocean",
         "scorpion",
@@ -2268,7 +2277,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "millipede",
         "shrimp"
       ],
-      "reptiles":       [
+      "reptiles":             [
         "turtle",
         "lizard",
         "dinosaur",
@@ -2283,13 +2292,13 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "hylonomus",
         "monitor lizard"
       ],
-      "amphibians":     [
+      "amphibians":           [
         "frog",
         "toad",
         "salamander",
         "caecilian"
       ],
-      "snakes":         [
+      "snakes":               [
         "anaconda",
         "viper",
         "python",
@@ -2304,10 +2313,11 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "coral reef snake",
         "anilius"
       ],
-      "fish":           [
+      "fish and crustaceans": [
         "fish",
         "shark",
         "whale",
+        "jellyfish",
         "trout",
         "salmon",
         "cod",
@@ -2448,9 +2458,112 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "andrew's beaked whale",
         "gray's beaked whale",
         "shepherd's beaked whale",
-        "hector's beaked whale"
+        "hector's beaked whale",
+        
+        "Abudjube Wrasse",
+        "Acapulco Major",
+        "Achilles Tang",
+        "Acoel flatworm",
+        "Acorn Barnacle",
+        "Acorn Worm (cast)",
+        "Admete Crab",
+        "African Bonytongue",
+        "African Butterfly Cichlid",
+        "African Pompano",
+        "African Pompano (juvenile)",
+        "African Spadefish",
+        "African Wrasse",
+        "African Wrasse (Juvenile)",
+        "Agassiz's Cory",
+        "Albino Marmalade Cat",
+        "Albus Nudibranch",
+        "Alligator Pipefish",
+        "Almaco Jack",
+        "Alyta Nudibranch",
+        "Ambanoro Shrimpgoby",
+        "Amber Penshell",
+        "Amberjack",
+        "Ambon Chromis",
+        "Ambon Cleaner Shrimp",
+        "Ambon Criniod Shrimp",
+        "Ambon Damsel",
+        "Ambon Scorpionfish",
+        "American Yellow Perch",
+        "Anchor Coral",
+        "Anchor Tuskfish",
+        "Anemone Hermit Crab",
+        "Angostura Cichlid",
+        "Anker's Whip Coral Shrimp",
+        "Anna's Magnificent Slug",
+        "Annae Nudibranch",
+        "Annular Seabream",
+        "Antler Coral",
+        "Antler Coral",
+        "Anton Bruuni Cleaner Shrimp",
+        "Aplysia sp.",
+        "Aplysia sp.",
+        "Apolegma Nudibranch",
+        "Apple Snail",
+        "Arabian Angelfish",
+        "Arabian Chromis",
+        "Arabian Crust",
+        "Arabian Monocle Bream",
+        "Arabian Monocle Bream (Juvenile)",
+        "Arabian Pinfish",
+        "Arapaima",
+        "Arawana",
+        "Arc",
+        "Arcfin Shrimpgoby",
+        "Arched Box Crab",
+        "Areolate Grouper",
+        "Argus Wrasse",
+        "Argus Wrasse (Juvenile)",
+        "Armored Pipefish",
+        "Arrow Cichlid",
+        "Asian Bonytongue",
+        "Asian Paddle Crab",
+        "Asparagus Algae",
+        "Assasi Triggerfish",
+        "Atabapo Red Pike Cichlid",
+        "Atipa",
+        "Atlantic Batfish",
+        "Atlantic Bigeye",
+        "Atlantic Bumper",
+        "Atlantic Flying Gurnard",
+        "Atlantic Flyingfish (Juvenile)",
+        "Atlantic Glaucus",
+        "Atlantic Hookear Sculpin",
+        "Atlantic Horse Mackerel",
+        "Atlantic Lizardfish",
+        "Atlantic Mackerel",
+        "Atlantic Pomfret",
+        "Atlantic Redlip Blenny",
+        "Atlantic Sea Raven",
+        "Atlantic Spadefish",
+        "Atlantic Spadefish (Juvenile)",
+        "Atlantic Tarpon",
+        "Atlantic Tripletail",
+        "Atlantic Wing",
+        "Atlantic wolffish",
+        "Atriolum Robustum",
+        "Aureopurpurea Nudibranch",
+        "Aurora Shrimpgoby",
+        "Australia corals etc to be identified",
+        "Australian Blenny",
+        "Australian Brain Coral",
+        "Australian Dive Site Maps",
+        "Australian Giant Cuttlefish",
+        "Australian Gregory",
+        "Australian Land Hermit Crab",
+        "Australian Mottled Moray",
+        "Australian Sandperch",
+        "Axilspot Hogfish",
+        "Axilspot Hogfish (Juvenile)",
+        "Azores Chromis",
+        "Azores Nudibranch",
+        "Azure Demoiselle"
       ],
-      "solar system":   [
+      "solar system":         [
         "sun",
         "mercury",
         "venus",
@@ -2473,7 +2586,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "alien",
         "black hole"
       ],
-      "chairs":         [
+      "chairs":               [
         "10 downing street guard chairs",
         "acapulco chair",
         "adirondack chair",
@@ -2599,7 +2712,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "wooden outdoor chair",
         "wood chair"
       ],
-      "tables":         [
+      "tables":               [
         "altar",
         "an",
         "analogion",
@@ -2638,7 +2751,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "workbench",
         "writing table"
       ],
-      "furniture":      [
+      "furniture":            [
         "accent table",
         "baby crib",
         "baby's crib",
@@ -2696,7 +2809,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "windsor chair",
         "wingback chair"
       ],
-      "fruits":         [
+      "fruits":               [
         "Acerola (West Indian Cherry)",
         "Apple",
         "Apricot",
@@ -2768,7 +2881,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "Tangerine",
         "Watermelon"
       ],
-      "vegetables":     [
+      "vegetables":           [
         "Amaranth Leave",
         "Amaranth Leaves",
         "Arrowroot",
@@ -2851,7 +2964,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "Yam Root",
         "Zucchini"
       ],
-      "flowers":        [
+      "flowers":              [
         "Acacia",
         "Achillea",
         "Adam's-needle",
@@ -3132,7 +3245,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "Zinna",
         "Zinnia elegans"
       ],
-      "monkeys":        [
+      "monkeys":              [
         "aye-aye",
         "baboon",
         "barbary ape",
@@ -3182,7 +3295,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "vervet",
         "wanderoo"
       ],
-      "mustelids":      [
+      "mustelids":            [
         "freshwater otter",
         "sea otter",
         "badger",
@@ -3200,7 +3313,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "wolverine",
         "zorille"
       ],
-      "bovidae":        [
+      "bovidae":              [
         "abbott's duiker",
         "addax",
         "aders' duiker",
@@ -3342,7 +3455,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "yellow-backed duiker",
         "zebra duiker"
       ],
-      "equus":          [
+      "equus":                [
         "donkey",
         "foal",
         "hinny",
@@ -3353,7 +3466,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "zonkey (zedonk)",
         "zorse"
       ],
-      "cervidae":       [
+      "cervidae":             [
         "brocket",
         "caribou or reindeer",
         "moose",
@@ -3375,7 +3488,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "Chinese water deer",
         "Irish elk"
       ],
-      "canidae":        [
+      "canidae":              [
         "african wild dog",
         "arctic fox",
         "bat-eared fox",
@@ -3416,7 +3529,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "swift fox",
         "tibetan fox"
       ],
-      "suidae":         [
+      "suidae":               [
         "bearded pig",
         "bushpig",
         "cape",
@@ -3440,7 +3553,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "visayan warty pig",
         "wild boar"
       ],
-      "camelidae":      [
+      "camelidae":            [
         "camel",
         "alpaca",
         "bactrian camel",
@@ -3464,7 +3577,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "reptiles",
       "amphibians",
       "snakes",
-      "fish",
+      "fish and crustaceans",
       "solar system",
       "chairs",
       "tables",
