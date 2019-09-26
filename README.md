@@ -3,7 +3,6 @@ Michael's Character Party
 
 Character Party was created for those that need an idea for a character to make.
 
-
 Screenshot:
 -------------
 
@@ -39,7 +38,7 @@ Want to contribute? Great!
 
 You can submit a pull request or simply share the project :)
 
-Of course, Character Party is free and open source, so you can always fork the project and have fun :)
+Of course, Character Party is free and open source (I even ported it to [Codepen](https://codepen.io/michaelsboost/pen/bGbZJKj?editors=0100)), so you can always fork the project and have fun :)
 
 [![ko-fi](https://az743702.vo.msecnd.net/cdn/kofi2.png?v=0)](https://ko-fi.com/michaelsboost)
 
