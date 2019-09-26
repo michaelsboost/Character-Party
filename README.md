@@ -1,7 +1,9 @@
 Michael's Character Party
 ===================
 
-Character Party was created for those that need an idea for a character to make.
+Character Party can be a handy tool you can utilize if you’re having difficulty coming up with an idea of a character to make.
+
+This app is capable of generating thousands of different combinations of characters, job titles, moods you would’ve never thought about combining together. Unsure what that animal is? No problem that’s what the hyperlink is for so you can research more of that animal for your character.
 
 Screenshot:
 -------------
