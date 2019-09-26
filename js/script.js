@@ -2444,6 +2444,7 @@ testAnim("character", "animated rubberBand delay-2s");
 testAnim("scenario", "animated pulse delay-2s");
 init();
 
+// play/pause music
 music.onclick = function() {
   if (playMusic) {
     playMusic = false;
