@@ -1912,7 +1912,9 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "fighter",
         "monster",
         "ogre",
-        "donkey"
+        "donkey",
+        "truck",
+        "car"
       ],
       "dogs":           [
         "dog",
