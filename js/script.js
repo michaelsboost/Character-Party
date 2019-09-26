@@ -71,6 +71,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "down",
       "dopey",
       "drained",
+      "eerie",
       "eight-eyed",
       "eight-legged",
       "elaborate",
@@ -91,6 +92,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "flirty",
       "focused",
       "frightened",
+      "frightening",
       "fresh",
       "frustrated",
       "funny",
@@ -153,6 +155,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "missing",
       "motivated",
       "mysterious",
+      "mysteriously strange",
       "naked",
       "narcissistic",
       "neat",
@@ -213,6 +216,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "sneezy",
       "sorry",
       "special",
+      "strange",
       "stressed",
       "strict",
       "strong",
@@ -231,16 +235,16 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "tiny",
       "tired",
       "ugly",
+      "uncanny",
+      "unexpected",
       "vision impared",
       "violent",
       "war hero",
       "weird",
-      "welcome",
       "well",
       "whimsical",
       "wonderful",
-      "worried",
-      "worse"
+      "worried"
     ],
     jobsJSON    = [
       "secret vigilante",
@@ -1839,7 +1843,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "Zoologist"
     ],
     designJSONS = {
-      "misc":       [
+      "misc":           [
         "man",
         "woman",
         "boy",
@@ -1889,7 +1893,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "ogre",
         "donkey"
       ],
-      "dogs":       [
+      "dogs":           [
         "dog",
         "labrador retriever",
         "pug",
@@ -1943,7 +1947,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "bull terrier",
         "miniature pinscher"
       ],
-      "felidae":    [
+      "felidae":        [
         "cat",
         "lion",
         "tiger",
@@ -1988,7 +1992,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "siamese cat",
         "sphynx cat"
       ],
-      "wolfs":      [
+      "wolfs":          [
         "wolf",
         "arctic wolf",
         "northwestern wolf",
@@ -2007,7 +2011,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "arabian wolf",
         "alaskan tundra wolf"
       ],
-      "bears":      [
+      "bears":          [
         "bear",
         "polar bear",
         "brown bear",
@@ -2042,7 +2046,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "gobi bear",
         "new mexico black bear"
       ],
-      "rodents":    [
+      "rodents":        [
         "rabbit",
         "squirrel",
         "mouse",
@@ -2067,7 +2071,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "flying mouse",
         "flying squirrel"
       ],
-      "birds":      [
+      "birds":          [
         "hawk",
         "red-tailed hawk",
         "cooper's hawk",
@@ -2150,14 +2154,14 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "chicken",
         "rooster"
       ],
-      "parrots":    [
+      "parrots":        [
         "parrot",
         "cockatoo",
         "lovebird",
         "macaw",
         "new zealand parrot (Strigopidae)"
       ],
-      "insects":    [
+      "insects":        [
         "beetle",
         "bee",
         "wasp",
@@ -2181,7 +2185,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "lice",
         "booklice"
       ],
-      "arthropods": [
+      "arthropods":     [
         "spider",
         "crustaocean",
         "scorpion",
@@ -2191,7 +2195,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "millipede",
         "shrimp"
       ],
-      "reptiles":   [
+      "reptiles":       [
         "turtle",
         "lizard",
         "dinosaur",
@@ -2205,13 +2209,13 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "gekkota",
         "hylonomus"
       ],
-      "amphibians": [
+      "amphibians":     [
         "frog",
         "toad",
         "salamander",
         "caecilian"
       ],
-      "snakes":     [
+      "snakes":         [
         "anaconda",
         "viper",
         "python",
@@ -2226,7 +2230,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "coral reef snake",
         "anilius"
       ],
-      "fish":       [
+      "fish":           [
         "fish",
         "shark",
         "whale",
@@ -2371,6 +2375,19 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "gray's beaked whale",
         "shepherd's beaked whale",
         "hector's beaked whale"
+      ],
+      "solar system":   [
+        "mercury",
+        "venus",
+        "earth",
+        "mars",
+        "jupitor",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto",
+        "moon",
+        "alien"
       ]
     },
     JSONItems   = [
@@ -2387,7 +2404,8 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "reptiles",
       "amphibians",
       "snakes",
-      "fish"
+      "fish",
+      "solar system"
     ];
 
 // generate a random number
@@ -2404,15 +2422,16 @@ function testAnim(el, x) {
 
 // character generation
 function init() {
-  ranMood     = randomNumber(moodsJSON.length);
-  ranMood     = moodsJSON[ranMood];
-  moodLink    = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ ranMood.replace(/ /, '+') +"+characteristic&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
-  ranJob      = randomNumber(jobsJSON.length);
-  ranJob      = jobsJSON[ranJob];
-  jobLink     = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+a+"+ ranJob.toLowerCase().replace(/ /, '+') +"%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
-  ranJSONItem = JSONItems[randomNumber(JSONItems.length)];
-  grabJSObj   = designJSONS[""+ ranJSONItem +""];
-  output      = grabJSObj[ randomNumber(grabJSObj.length) ];
+  ranMood      = randomNumber(moodsJSON.length);
+  ranMood      = moodsJSON[ranMood];
+  moodLink     = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ ranMood.replace(/ /, '+') +"+characteristic&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  ranJob       = randomNumber(jobsJSON.length);
+  ranJob       = jobsJSON[ranJob];
+  jobLink      = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+a+"+ ranJob.toLowerCase().replace(/ /, '+') +"%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  ranJSONItem  = JSONItems[randomNumber(JSONItems.length)];
+  grabJSObj    = designJSONS[""+ ranJSONItem +""];
+  categoryLink = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+"+ ranJSONItem.toLowerCase().replace(/ /, '+') +"%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  output       = grabJSObj[ randomNumber(grabJSObj.length) ];
   
   // with duckduckgo images search link
   output      = output + " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ output.replace(/ /, '+') +"+"+ ranJSONItem +"&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
@@ -2435,7 +2454,7 @@ function init() {
   
   // generate character to draw
   character.innerHTML = ranMood + moodLink + " " + output;
-  scenario.innerHTML = "Category: " + ranJSONItem + "<br>Draw: " + ranMood + moodLink + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
+  scenario.innerHTML = "Category: " + ranJSONItem + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
   return false;
 }
 
