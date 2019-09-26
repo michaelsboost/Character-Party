@@ -2377,6 +2377,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "hector's beaked whale"
       ],
       "solar system":   [
+        "sun",
         "mercury",
         "venus",
         "earth",
@@ -2387,7 +2388,8 @@ var str, ranMood, moodLink, jobLink, ranJob,
         "neptune",
         "pluto",
         "moon",
-        "alien"
+        "alien",
+        "black hole"
       ]
     },
     JSONItems   = [
