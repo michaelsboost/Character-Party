@@ -2685,6 +2685,24 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "chairs",
       "tables",
       "furniture"
+    ],
+    colorsJSON  = [
+      "red",
+      "red-orange",
+      "orange",
+      "yellow-orange",
+      "yellow",
+      "yellow-green",
+      "green",
+      "blue-green",
+      "blue",
+      "blue-purple",
+      "purple",
+      "purple-red",
+      "brown",
+      "black",
+      "white",
+      "rainbow"
     ];
 
 // generate a random number
