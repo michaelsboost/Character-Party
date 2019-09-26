@@ -2737,8 +2737,6 @@ function testAnim(el, x) {
 
 // character generation
 function init() {
-  yesOrNo      = randomNumber(yesOrNoJSON.length);
-  yesOrNo      = yesOrNoJSON[yesOrNo];
   ranColor     = randomNumber(colorsJSON.length);
   ranColor     = colorsJSON[ranColor];
   ranFeats     = randomNumber(onFeatures.length);
@@ -2773,7 +2771,9 @@ function init() {
     ranJob = "a " + ranJob;
   }
   
-  // detect yes or no which decides what to show
+  // randomly choose what to show
+  yesOrNo      = randomNumber(yesOrNoJSON.length);
+  yesOrNo      = yesOrNoJSON[yesOrNo];
   str = yesOrNo.toLowerCase();
   if (str === "yes") {
     outputFeat = ranColor + " " + ranFeats;
