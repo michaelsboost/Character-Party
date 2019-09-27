@@ -4211,6 +4211,7 @@ function setActivity() {
     
     // set scene from job
     scenario.innerHTML = "Draw: " + output + "<br>&nbsp;";
+    output = drawTopic;
   }
   function character() {
     // detect if job starts with a vowel or not
@@ -4232,6 +4233,7 @@ function setActivity() {
     
     // set scene from character
     scenario.innerHTML = "Category: " + ranDesignObj + categoryLink + "<br>Draw: " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
+    output = drawTopic;
   }
   
   // apply text
