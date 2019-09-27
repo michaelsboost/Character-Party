@@ -5,7 +5,7 @@
 // This is Character Party (https://michaelsboost.github.io/Character-Party/), Created for those that need an idea for a character to make
 
 var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
-    grabJSObj, output, playMusic, ranColor, ranFeats, yesOrNo, outputFeat,
+    grabJSObj, output, playMusic, ranColor, yesOrNo, 
     moodsJSON    = [
       "accomplished",
       "admiring",
@@ -3900,21 +3900,10 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "pulling",
       "controlling",
       "riding",
+      "dragging",
       "holding",
       "eating",
       "wearing"
-    ],
-    onFeatures   = [
-      "eyed",
-      "shirt wearing",
-      "skirt wearing",
-      "dress wearing",
-      "swimsuit wearing",
-      "pants wearing",
-      "socks wearing",
-      "shoes wearing",
-      "jacket wearing",
-      "coat wearing"
     ],
     yesOrNoJSON  = [
       "yes",
@@ -3933,25 +3922,47 @@ function testAnim(el, x) {
   });
 };
 
+// search web
+function searchWeb(val) {
+  return " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ val.toLowerCase().replace(/ /, '+') +"%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+}
+
+// search images
+function searchImages(val) {
+  return " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ val.toLowerCase().replace(/ /, '+') +"&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+}
+
 // character generation
 function init() {
+  /*
+    Samples of how character should generate
+    * toggles yes and no to show or not
+    ** still toggles but searches list but also 
+    
+    Category: Dogs
+    Draw: A Gloomy Blue Eyed* German Shepherd **Wearing A Funny Hat **Riding A Drawable Animal **Eating An Apple
+    Who Is A Pharmacist 
+
+    Category: Dogs
+    Draw: A Gloomy Blue Eyed* Pharmacist **Wearing A Funny Hat **Riding A Train **Eating An Apple
+    Draw: A Gloomy Blue Eyed* Pharmacist **Wearing A Funny Hat **Riding A German Shepherd **Eating An Apple
+  */
+
   ranColor     = randomNumber(colorsJSON.length);
   ranColor     = colorsJSON[ranColor];
-  ranFeats     = randomNumber(onFeatures.length);
-  ranFeats     = onFeatures[ranFeats];
   ranMood      = randomNumber(moodsJSON.length);
   ranMood      = moodsJSON[ranMood];
-  moodLink     = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ ranMood.replace(/ /, '+') +"+characteristic&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  moodLink     = searchWeb(ranMood + " characteristic");
   ranJob       = randomNumber(jobsJSON.length);
   ranJob       = jobsJSON[ranJob];
-  jobLink      = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+a+"+ ranJob.toLowerCase().replace(/ /, '+') +"%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  jobLink      = searchWeb("what is a" + ranJob);
   ranJSONItem  = JSONItems[randomNumber(JSONItems.length)];
   grabJSObj    = designJSONS[""+ ranJSONItem +""];
-  categoryLink = " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+"+ ranJSONItem.toLowerCase().replace(/ /, '+') +"%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  categoryLink = searchWeb("what is a" + ranJSONItem);
   output       = grabJSObj[ randomNumber(grabJSObj.length) ];
   
   // with duckduckgo images search link
-  output      = output + " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ output.replace(/ /, '+') +"+"+ ranJSONItem +"&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  output      = output + searchImages(output + " " + ranJSONItem);
   
   // detect if mood starts with a vowel or not
   str = ranMood.substring(0, 1).toLowerCase();
@@ -3974,14 +3985,14 @@ function init() {
   yesOrNo = yesOrNoJSON[yesOrNo];
   str = yesOrNo.toLowerCase();
   if (str === "yes") {
-    outputFeat = ranColor + " " + ranFeats;
+    
   } else {
-    outputFeat = "";
+    
   }
   
   // generate character to draw
   character.innerHTML = ranMood + moodLink + " " + output;
-  scenario.innerHTML = "Category: " + ranJSONItem + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + outputFeat + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
+  scenario.innerHTML = "Category: " + ranJSONItem + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
 
   // sample for screenshot
 //  character.innerHTML = "A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
