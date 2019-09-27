@@ -1912,6 +1912,7 @@ var str, num, list, alph, ranNum, output, outputStr,
         "star",
         "snowperson",
         
+        "zombie",
         "ghost",
         "alien",
         "mage",
