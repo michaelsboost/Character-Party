@@ -3676,6 +3676,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "sailboat",
       "ship",
       "small airplane",
+      "spaceship",
       "speedboat",
       "station",
       "suspension railway",
@@ -3684,6 +3685,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "train",
       "tram",
       "tram car",
+      "ufo",
       
       "designJSONS"
     ],
@@ -3965,17 +3967,17 @@ function init() {
     ** still toggles but searches list but also 
     
     Category: Dogs
-    Draw: A Gloomy Blue Eyed* German Shepherd **Wearing A Funny Hat **Riding A Drawable Animal **Eating An Apple
+    Draw: A Scared Blue Eyed* German Shepherd **Wearing A Funny Hat **Riding A Drawable Animal **Eating An Apple
     Who Is A Pharmacist 
 
     Category: Dogs
-    Draw: A Gloomy Blue Eyed* Pharmacist **Wearing A Funny Hat **Riding A Train **Eating An Apple
-    Draw: A Gloomy Blue Eyed* Pharmacist **Wearing A Funny Hat **Riding A German Shepherd **Eating An Apple
+    Draw: A Scared Blue Eyed* Security Officer **Wearing A Funny Hat **Riding A Train **Eating An Apple
+    Draw: A Scared Blue Eyed* Security Officer **Wearing A Funny Hat **Riding A German Shepherd **Eating An Apple
     
     Currently Generates as...
 
     Category: Dogs 
-    Draw: A Scared  German Shepherd 
+    Draw: A Scared German Shepherd 
     Who Is A Security Officer 
   */
 
