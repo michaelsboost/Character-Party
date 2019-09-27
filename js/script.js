@@ -3990,8 +3990,8 @@ function init() {
   ranDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
   grabDesignObj = designJSONS[""+ ranDesignObj +""];
   moodLink      = searchWeb(ranMood + " characteristic");
-  jobLink       = searchWeb("what is a" + ranJob);
-  categoryLink  = searchWeb("what is a" + ranDesignObj);
+  jobLink       = searchWeb("what is a " + ranJob);
+  categoryLink  = searchWeb("what is a " + ranDesignObj);
   output        = grabDesignObj[ randomNumber(grabDesignObj.length) ];
   
   // with duckduckgo images search link
