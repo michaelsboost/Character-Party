@@ -4004,11 +4004,6 @@ function shephardDogSample() {
 
 // set activity
 function setActivity() {
-//**Wearing A Funny Hat
-//**Wearing A Funny Hat **Riding A Train
-//**Wearing A Funny Hat **Riding A designJSONS **Eating An Apple
-//**Wearing A Funny Hat **Riding A German Shepherd **Eating An Apple
-  
   var ranWearing = randomNumber(wearingJSON.length);
   ranWearing     = wearingJSON[ranWearing];
   
@@ -4028,16 +4023,15 @@ function setActivity() {
   
   // detect activity
   if (str === "wearing") {
-    // detect if starts with a vowel
     str = str + " " + ranWearing + " " + searchImages(ranWearing);
   }
   if (str === "talking") {
-    ranTalking = randomNumber(talkingJSON.length);
-    ranTalking = talkingJSON[ranTalking];
-    ranTalkDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
-    grabDesignObjTalk = designJSONS[""+ ranTalkDesignObj +""];
-    ranTalkTo = randomNumber(grabDesignObjTalk.length);
-    ranTalkTo = grabDesignObjTalk[ranTalkTo];
+    var ranTalking = randomNumber(talkingJSON.length);
+    ranTalking     = talkingJSON[ranTalking];
+    var ranTalkDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
+    var grabDesignObjTalk = designJSONS[""+ ranTalkDesignObj +""];
+    var ranTalkTo = randomNumber(grabDesignObjTalk.length);
+    ranTalkTo     = grabDesignObjTalk[ranTalkTo];
     
     if (ranTalking === "to a designJSONS") {
       // detect if starts with a vowel
@@ -4072,16 +4066,16 @@ function setActivity() {
     str = tempJSON[str];
     
     if (str === "controlling") {
-      ranConDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
-      grabConDesignObj = designJSONS[""+ ranConDesignObj +""];
-      designConJSONS   = randomNumber(grabConDesignObj.length);
-      designConJSONS   = grabConDesignObj[designConJSONS];
-      ranControlling   = randomNumber(ridingJSON.length);
-      ranControlling   = ridingJSON[ranControlling];
+      var ranConDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
+      var grabConDesignObj = designJSONS[""+ ranConDesignObj +""];
+      var designConJSONS   = randomNumber(grabConDesignObj.length);
+      designConJSONS       = grabConDesignObj[designConJSONS];
+      var ranControlling   = randomNumber(ridingJSON.length);
+      ranControlling       = ridingJSON[ranControlling];
       
       // randomly select ridingJSON or designJSONS
       tempJSON = ["ridingJSON", "designJSONS"]
-      ranJSON = randomNumber(tempJSON.length);
+      var ranJSON = randomNumber(tempJSON.length);
       
       if (ranJSON === "ridingJSON") {
         // detect if starts with a vowel
@@ -4102,7 +4096,7 @@ function setActivity() {
       }
     }
     if (str === "holding") {
-      ranHolding     = randomNumber(holdingJSON.length);
+      var ranHolding = randomNumber(holdingJSON.length);
       ranHolding     = holdingJSON[ranHolding];
       
       // detect if plural or not
@@ -4122,12 +4116,12 @@ function setActivity() {
       str = str + " " + searchImages(ranHolding);
     }
     if (str === "riding" || str === "pushing" || str === "pulling" || str === "dragging") {
-      ranActDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
-      grabActDesignObj = designJSONS[""+ ranActDesignObj +""];
-      designActJSONS   = randomNumber(grabActDesignObj.length);
-      designActJSONS   = grabActDesignObj[designActJSONS];
-      ranRiding     = randomNumber(ridingJSON.length);
-      ranRiding     = ridingJSON[ranRiding];
+      var ranActDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
+      var grabActDesignObj = designJSONS[""+ ranActDesignObj +""];
+      var designActJSONS   = randomNumber(grabActDesignObj.length);
+      designActJSONS       = grabActDesignObj[designActJSONS];
+      var ranRiding        = randomNumber(ridingJSON.length);
+      ranRiding            = ridingJSON[ranRiding];
       
       // randomly select ridingJSON or designJSONS
       tempJSON = ["ridingJSON", "designJSONS"]
