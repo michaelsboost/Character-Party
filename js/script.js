@@ -4,9 +4,9 @@
 // 
 // This is Character Party (https://michaelsboost.github.io/Character-Party/), Created for those that need an idea for a character to make
 
-var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
-    grabJSObj, output, playMusic, ranColor, yesOrNo, 
-    moodsJSON     = [
+var str, ranMood, moodLink, jobLink, ranJob, ranDesignObj, categoryLink,
+    grabDesignObj, output, playMusic, ranColor, yesOrNo, 
+    moodsJSON       = [
       "accomplished",
       "admiring",
       "aggravated",
@@ -275,7 +275,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "wonderful",
       "worried"
     ],
-    jobsJSON      = [
+    jobsJSON        = [
       "secret vigilante",
       "juggler",
       "burglar",
@@ -1871,7 +1871,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "Zookeeper",
       "Zoologist"
     ],
-    designJSONS   = {
+    designJSONS     = {
       "misc":                 [
         "man",
         "woman",
@@ -3565,7 +3565,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "vicuña"
       ]
     },
-    JSONItems     = [
+    JSONDesignItems = [
       "misc",
       "dogs",
       "felidae",
@@ -3596,7 +3596,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "suidae",
       "camelidae"
     ],
-    colorsJSON    = [
+    colorsJSON      = [
       "red",
       "red-orange",
       "orange",
@@ -3614,7 +3614,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "white",
       "rainbow"
     ],
-    wearingJSON   = [
+    wearingJSON     = [
       "dress",
       "skirt",
       "apron",
@@ -3629,7 +3629,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "funny hat",
       "raggedy clothes"
     ],
-    ridingJSON    = [
+    ridingJSON      = [
       "car",
       "truck",
       "semi truck",
@@ -3689,7 +3689,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       
       "designJSONS"
     ],
-    holdingJSON   = [
+    holdingJSON     = [
       // all will start with a or an but if finds "plural" then doesn't start with a or an
       "1st place medal",
       "2nd place medal",
@@ -3900,7 +3900,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "wrapped gift",
       "wrench"
     ],
-    activityJSON  = [
+    activityJSON    = [
       // if eating or driving not holding
       "driveorno",
       "holding",
@@ -3908,18 +3908,18 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "wearing",
       "talking"
     ],
-    activitysJSON = [
+    activitysJSON   = [
       "one",
       "two",
       "three"
     ],
-    driveornoJSON = [
+    driveornoJSON   = [
       "pulling",
       "controlling",
       "riding",
       "dragging"
     ],
-    talkingJSON   = [
+    talkingJSON     = [
       "on the phone",
       "to a friend",
       "to friends",
@@ -3928,11 +3928,11 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "to kids",
       "to a designJSONS"
     ],
-    jobOrChar     = [
+    jobOrChar       = [
       "job",
       "character"
     ],
-    yesOrNoJSON   = [
+    yesOrNoJSON     = [
       "yes",
       "no"
     ];
@@ -3981,21 +3981,21 @@ function init() {
     Who Is A Security Officer 
   */
 
-  ranColor     = randomNumber(colorsJSON.length);
-  ranColor     = colorsJSON[ranColor];
-  ranMood      = randomNumber(moodsJSON.length);
-  ranMood      = moodsJSON[ranMood];
-  moodLink     = searchWeb(ranMood + " characteristic");
-  ranJob       = randomNumber(jobsJSON.length);
-  ranJob       = jobsJSON[ranJob];
-  jobLink      = searchWeb("what is a" + ranJob);
-  ranJSONItem  = JSONItems[randomNumber(JSONItems.length)];
-  grabJSObj    = designJSONS[""+ ranJSONItem +""];
-  categoryLink = searchWeb("what is a" + ranJSONItem);
-  output       = grabJSObj[ randomNumber(grabJSObj.length) ];
+  ranColor      = randomNumber(colorsJSON.length);
+  ranColor      = colorsJSON[ranColor];
+  ranMood       = randomNumber(moodsJSON.length);
+  ranMood       = moodsJSON[ranMood];
+  ranJob        = randomNumber(jobsJSON.length);
+  ranJob        = jobsJSON[ranJob];
+  ranDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
+  grabDesignObj = designJSONS[""+ ranDesignObj +""];
+  moodLink      = searchWeb(ranMood + " characteristic");
+  jobLink       = searchWeb("what is a" + ranJob);
+  categoryLink  = searchWeb("what is a" + ranDesignObj);
+  output        = grabDesignObj[ randomNumber(grabDesignObj.length) ];
   
   // with duckduckgo images search link
-  output      = output + searchImages(output + " " + ranJSONItem);
+  output      = output + searchImages(output + " " + ranDesignObj);
   
   // detect if mood starts with a vowel or not
   str = ranMood.substring(0, 1).toLowerCase();
@@ -4020,7 +4020,7 @@ function init() {
   
   // generate character to draw
   character.innerHTML = ranMood + moodLink + " " + output;
-  scenario.innerHTML = "Category: " + ranJSONItem + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
+  scenario.innerHTML = "Category: " + ranDesignObj + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
 
   // sample for screenshot
 //  character.innerHTML = "A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
