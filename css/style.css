@@ -16,6 +16,7 @@ body {
     linear-gradient(25deg, hsla(196.72, 98.94%, 43.71%, 1) 10%, hsla(196.72, 98.94%, 43.71%, 0) 80%),
     linear-gradient(315deg, hsla(214.71, 99.46%, 49.59%, 1) 15%, hsla(214.71, 99.46%, 49.59%, 0) 80%),
     linear-gradient(245deg, hsla(66.07, 90.58%, 42.64%, 1) 100%, hsla(66.07, 90.58%, 42.64%, 0) 70%);
+  background-attachment: fixed;
 }
 
 .table {
@@ -30,9 +31,11 @@ body {
   height: 100%;
   opacity: 0.2;
   background-image: url('../logo.svg');
+  background-attachment: fixed;
 }
 .bg-overlay3 {
-  box-shadow: inset 0 0 0 100em rgba(255, 255, 255, 0.2);
+/*  box-shadow: inset 0 0 0 100em rgba(255, 255, 255, 0.2);*/
+  box-shadow: inset 0 0 0 100em rgba(0, 0, 0, 0.2);
 }
 
 #character, #scenario {

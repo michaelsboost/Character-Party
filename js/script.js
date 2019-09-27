@@ -6,6 +6,10 @@
 
 var str, num, list, alph, ranNum, output, outputStr,
     playMusic, drawTopic, tempJSON, tempVar,
+    character = document.getElementById("character"),
+    scenario  = document.getElementById("scenario"),
+    music     = document.getElementById("music"),
+    generate  = document.getElementById("generate"),
     outputStr = "",
     counter = 1,
     moodsJSON       = [
@@ -3992,6 +3996,12 @@ function shuffleJSON(a) {
   return a;
 };
 
+// sample for screenshot
+function shephardDogSample() {
+  character.innerHTML = "A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  scenario.innerHTML = "Category: Dogs <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+dogs%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>" + "<br>Draw: A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> <br>Who is a security officer <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+security+officer+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a><br>&nbsp;";
+}
+
 // set activity
 function setActivity() {
 //**Wearing A Funny Hat
@@ -4202,11 +4212,12 @@ function setActivity() {
     } else {
       ranCharAttr = ranCharAttr + " " + ranJob + jobLink;
     }
-    drawTopic = ranMood + moodLink + " " + ranCharAttr
+    drawTopic = ranMood + moodLink + " " + ranCharAttr;
+    output = drawTopic + " " + outputStr;
     
     // set scene from job
-    character.innerHTML = drawTopic + " " + outputStr;
-    scenario.innerHTML = "Draw: " + drawTopic + " " + outputStr + "<br>&nbsp;";
+    character.innerHTML = output;
+    scenario.innerHTML = "Draw: " + output + "<br>&nbsp;";
   }
   function character() {
     // detect if job starts with a vowel or not
@@ -4224,10 +4235,11 @@ function setActivity() {
       ranCharAttr = ranCharAttr + " " + output;
     }
     drawTopic = ranMood + moodLink + " " + ranCharAttr;
+    output = drawTopic + " " + outputStr;
     
     // set scene from character
-    character.innerHTML = ranMood + moodLink + " " + drawTopic + " " + outputStr;
-    scenario.innerHTML = "Category: " + ranDesignObj + categoryLink + "<br>Draw: " + drawTopic + " " + outputStr + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
+    character.innerHTML = ranMood + moodLink + " " + output;
+    scenario.innerHTML = "Category: " + ranDesignObj + categoryLink + "<br>Draw: " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
   }
   
   // apply text
@@ -4280,8 +4292,7 @@ function init() {
   }
 
   // sample for screenshot
-//  character.innerHTML = "A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
-//  scenario.innerHTML = "Category: Dogs <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+dogs%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>" + "<br>Draw: A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> <br>Who is a security officer <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+security+officer+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a><br>&nbsp;";
+  // shephardDogSample();
   
   // reset a few variables
   actListJSON = ["wearing", "talking", "eating", "reading", "anotheraction"];
