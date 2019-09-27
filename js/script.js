@@ -4,8 +4,10 @@
 // 
 // This is Character Party (https://michaelsboost.github.io/Character-Party/), Created for those that need an idea for a character to make
 
-var str, ranMood, moodLink, jobLink, ranJob, ranDesignObj, categoryLink,
-    grabDesignObj, output, playMusic, ranColor, yesOrNo, 
+var str, ranMood, moodLink, jobLink, ranJob,
+    ranDesignObj, categoryLink, grabDesignObj,
+    output, playMusic, ranColor, yesOrNo, ranjobOrChar,
+    ranEyesorAttr, ranCharAttr, drawTopic,
     moodsJSON       = [
       "accomplished",
       "admiring",
@@ -42,6 +44,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranDesignObj, categoryLink,
       "broken",
       "brused",
       "bumpy",
+      "busty",
       "calm",
       "casual",
       "cheerful",
@@ -98,6 +101,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranDesignObj, categoryLink,
       "fearful",
       "fed up",
       "festive",
+      "fit",
       "flirty",
       "flourishing",
       "focused",
@@ -252,6 +256,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranDesignObj, categoryLink,
       "terrible",
       "texting",
       "thankful",
+      "thin",
       "thoughtful",
       "thrilled",
       "tiny",
@@ -3612,7 +3617,8 @@ var str, ranMood, moodLink, jobLink, ranJob, ranDesignObj, categoryLink,
       "brown",
       "black",
       "white",
-      "rainbow"
+      "rainbow",
+      "transparent"
     ],
     wearingJSON     = [
       "dress",
@@ -3932,6 +3938,30 @@ var str, ranMood, moodLink, jobLink, ranJob, ranDesignObj, categoryLink,
       "job",
       "character"
     ],
+    eyesorAttr      = [
+      "eyes",
+      "attributes"
+    ],
+    attrJSON        = [
+      "big headed",
+      "big footed",
+      "big eared",
+      "big eyed",
+      "with big nails",
+      "with big lips",
+      "with big features",
+      "tiny headed",
+      "tiny footed",
+      "tiny eared",
+      "tiny eyed",
+      "with tiny nails",
+      "with tiny lips",
+      "with tiny features",
+      "fat",
+      "thin",
+      "fit",
+      "busty"
+    ],
     yesOrNoJSON     = [
       "yes",
       "no"
@@ -3963,26 +3993,38 @@ function searchImages(val) {
 function init() {
   /*
     Samples of how character should generate
-    * toggles yes and no to show or not
     ** still toggles but searches list but also 
-    
-    Category: Dogs
-    Draw: A Scared Blue Eyed* German Shepherd **Wearing A Funny Hat **Riding A Drawable Animal **Eating An Apple
-    Who Is A Pharmacist 
 
+    character render    
     Category: Dogs
-    Draw: A Scared Blue Eyed* Security Officer **Wearing A Funny Hat **Riding A Train **Eating An Apple
-    Draw: A Scared Blue Eyed* Security Officer **Wearing A Funny Hat **Riding A German Shepherd **Eating An Apple
-    
-    Currently Generates as...
+    Draw: A Scared German Shepherd **Wearing A Funny Hat
+    Draw: A Scared German Shepherd **Wearing A Funny Hat **Riding A Train
+    Draw: A Scared German Shepherd **Wearing A Funny Hat **Riding A designJSONS **Eating An Apple
 
-    Category: Dogs 
-    Draw: A Scared German Shepherd 
-    Who Is A Security Officer 
+    job render 
+    Draw: A Scared Security Officer **Wearing A Funny Hat
+    Draw: A Scared Security Officer **Wearing A Funny Hat **Riding A Train
+    Draw: A Scared Security Officer **Wearing A Funny Hat **Riding A designJSONS **Eating An Apple
+    Draw: A Scared Security Officer **Wearing A Funny Hat **Riding A German Shepherd **Eating An Apple
   */
-
+  
+  // detect if eyes or attributes
+  ranEyesorAttr = randomNumber(eyesorAttr.length);
+  ranEyesorAttr = eyesorAttr[ranEyesorAttr];
   ranColor      = randomNumber(colorsJSON.length);
   ranColor      = colorsJSON[ranColor];
+  ranCharAttr   = randomNumber(attrJSON.length);
+  ranCharAttr   = attrJSON[ranCharAttr];
+  
+  // randomly choose what to show from yes/no
+  yesOrNo = randomNumber(yesOrNoJSON.length);
+  yesOrNo = yesOrNoJSON[yesOrNo].toLowerCase();
+  if (ranEyesorAttr === "eyes") {
+    (yesOrNo === "yes") ? ranEyesorAttr = ranColor + " eyed" : ranEyesorAttr = "";
+  } else {
+    (yesOrNo === "yes") ? ranEyesorAttr = ranCharAttr : ranEyesorAttr = "";
+  }
+  
   ranMood       = randomNumber(moodsJSON.length);
   ranMood       = moodsJSON[ranMood];
   ranJob        = randomNumber(jobsJSON.length);
@@ -4005,22 +4047,43 @@ function init() {
     ranMood = "a " + ranMood;
   }
   
-  // detect if job starts with a vowel or not
-  str = ranJob.substring(0, 1).toLowerCase();
-  if (str === "a" || str === "e" || str === "i" || str === "o" || str === "u") {
-    ranJob = "an " + ranJob;
+  // set scene from job or character
+  ranjobOrChar  = randomNumber(jobOrChar.length);
+  ranjobOrChar  = jobOrChar[ranjobOrChar];
+  
+  if (ranjobOrChar === "job") {
+    // reposition eyes or attributes
+    if (ranCharAttr.substring(4, 0) === "with") {
+      ranCharAttr = ranJob + jobLink + " " + ranCharAttr;
+    } else {
+      ranCharAttr = ranCharAttr + " " + ranJob + jobLink;
+    }
+    drawTopic = ranMood + moodLink + " " + ranCharAttr
+    
+    // set scene from job
+    character.innerHTML = drawTopic;
+    scenario.innerHTML = "Draw: " + drawTopic + "<br>&nbsp;";
   } else {
-    ranJob = "a " + ranJob;
+    // detect if job starts with a vowel or not
+    str = ranJob.substring(0, 1).toLowerCase();
+    if (str === "a" || str === "e" || str === "i" || str === "o" || str === "u") {
+      ranJob = "an " + ranJob;
+    } else {
+      ranJob = "a " + ranJob;
+    }
+    
+    // reposition eyes or attributes
+    if (ranCharAttr.substring(4, 0) === "with") {
+      ranCharAttr = output + " " + ranCharAttr + " ";
+    } else {
+      ranCharAttr = ranCharAttr + " " + output;
+    }
+    drawTopic = ranMood + moodLink + " " + ranCharAttr;
+    
+    // set scene from character
+    character.innerHTML = ranMood + moodLink + " " + ranCharAttr;
+    scenario.innerHTML = "Category: " + ranDesignObj + categoryLink + "<br>Draw: " + drawTopic + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
   }
-  
-  // randomly choose what to show from yes/no
-//  yesOrNo = randomNumber(yesOrNoJSON.length);
-//  yesOrNo = yesOrNoJSON[yesOrNo];
-//  str = yesOrNo.toLowerCase();
-  
-  // generate character to draw
-  character.innerHTML = ranMood + moodLink + " " + output;
-  scenario.innerHTML = "Category: " + ranDesignObj + categoryLink + "<br>Draw: " + ranMood + moodLink + " " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
 
   // sample for screenshot
 //  character.innerHTML = "A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
