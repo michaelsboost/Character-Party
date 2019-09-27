@@ -6,7 +6,7 @@
 
 var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
     grabJSObj, output, playMusic, ranColor, yesOrNo, 
-    moodsJSON    = [
+    moodsJSON     = [
       "accomplished",
       "admiring",
       "aggravated",
@@ -265,6 +265,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "vision impared",
       "walking",
       "war hero",
+      "weak",
       "weird",
       "welcomed",
       "well dressed",
@@ -274,7 +275,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "wonderful",
       "worried"
     ],
-    jobsJSON     = [
+    jobsJSON      = [
       "secret vigilante",
       "juggler",
       "burglar",
@@ -1870,7 +1871,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "Zookeeper",
       "Zoologist"
     ],
-    designJSONS  = {
+    designJSONS   = {
       "misc":                 [
         "man",
         "woman",
@@ -3564,7 +3565,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
         "vicuña"
       ]
     },
-    JSONItems    = [
+    JSONItems     = [
       "misc",
       "dogs",
       "felidae",
@@ -3595,7 +3596,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "suidae",
       "camelidae"
     ],
-    colorsJSON   = [
+    colorsJSON    = [
       "red",
       "red-orange",
       "orange",
@@ -3613,7 +3614,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "white",
       "rainbow"
     ],
-    wearingJSON  = [
+    wearingJSON   = [
       "dress",
       "skirt",
       "apron",
@@ -3628,7 +3629,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "funny hat",
       "raggedy clothes"
     ],
-    ridingJSON   = [
+    ridingJSON    = [
       "car",
       "truck",
       "semi truck",
@@ -3684,9 +3685,9 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "tram",
       "tram car",
       
-      "random animals"
+      "designJSONS"
     ],
-    holdingJSON  = [
+    holdingJSON   = [
       // all will start with a or an but if finds "plural" then doesn't start with a or an
       "1st place medal",
       "2nd place medal",
@@ -3865,6 +3866,7 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "sponge",
       "sports medal",
       "squirt gun",
+      "stack of books",
       "stopwatch",
       "straight ruler",
       "studio microphone",
@@ -3896,16 +3898,39 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "wrapped gift",
       "wrench"
     ],
-    activityJSON = [
+    activityJSON  = [
+      // if eating or driving not holding
+      "driveorno",
+      "holding",
+      "eating",
+      "wearing",
+      "talking"
+    ],
+    activitysJSON = [
+      "one",
+      "two",
+      "three"
+    ],
+    driveornoJSON = [
       "pulling",
       "controlling",
       "riding",
-      "dragging",
-      "holding",
-      "eating",
-      "wearing"
+      "dragging"
     ],
-    yesOrNoJSON  = [
+    talkingJSON   = [
+      "on the phone",
+      "to a friend",
+      "to friends",
+      "to the neighbor",
+      "to the neighbors",
+      "to kids",
+      "to a designJSONS"
+    ],
+    jobOrChar     = [
+      "job",
+      "character"
+    ],
+    yesOrNoJSON   = [
       "yes",
       "no"
     ];
@@ -3917,7 +3942,7 @@ function randomNumber(n) {
 
 // add/remove animateCSS animations
 function testAnim(el, x) {
-  $("#" + el).removeClass().addClass(x).one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function(){
+  $("#" + el).removeClass().addClass(x).one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function() {
     $(this).removeClass();
   });
 };
@@ -3946,6 +3971,12 @@ function init() {
     Category: Dogs
     Draw: A Gloomy Blue Eyed* Pharmacist **Wearing A Funny Hat **Riding A Train **Eating An Apple
     Draw: A Gloomy Blue Eyed* Pharmacist **Wearing A Funny Hat **Riding A German Shepherd **Eating An Apple
+    
+    Currently Generates as...
+
+    Category: Dogs 
+    Draw: A Scared  German Shepherd 
+    Who Is A Security Officer 
   */
 
   ranColor     = randomNumber(colorsJSON.length);
@@ -3980,15 +4011,10 @@ function init() {
     ranJob = "a " + ranJob;
   }
   
-  // randomly choose what to show
-  yesOrNo = randomNumber(yesOrNoJSON.length);
-  yesOrNo = yesOrNoJSON[yesOrNo];
-  str = yesOrNo.toLowerCase();
-  if (str === "yes") {
-    
-  } else {
-    
-  }
+  // randomly choose what to show from yes/no
+//  yesOrNo = randomNumber(yesOrNoJSON.length);
+//  yesOrNo = yesOrNoJSON[yesOrNo];
+//  str = yesOrNo.toLowerCase();
   
   // generate character to draw
   character.innerHTML = ranMood + moodLink + " " + output;
