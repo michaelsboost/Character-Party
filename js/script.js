@@ -3619,10 +3619,13 @@ var str, ranMood, moodLink, jobLink, ranJob, ranJSONItem, categoryLink,
       "apron",
       "raincoat",
       "hat",
+      "wig",
+      "afro wig",
       "cap",
       "top hat",
       "suit",
       "silly outfit",
+      "funny hat",
       "raggedy clothes"
     ],
     ridingJSON   = [
