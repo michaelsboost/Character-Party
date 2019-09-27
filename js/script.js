@@ -4210,7 +4210,6 @@ function setActivity() {
     output = drawTopic + " " + outputStr;
     
     // set scene from job
-    character.innerHTML = output;
     scenario.innerHTML = "Draw: " + output + "<br>&nbsp;";
   }
   function character() {
@@ -4232,7 +4231,6 @@ function setActivity() {
     output = drawTopic + " " + outputStr;
     
     // set scene from character
-    character.innerHTML = ranMood + moodLink + " " + output;
     scenario.innerHTML = "Category: " + ranDesignObj + categoryLink + "<br>Draw: " + output + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
   }
   
@@ -4284,6 +4282,9 @@ function init() {
     }
     countFunc();
   }
+  
+  // Render output for header
+  character.innerHTML = output;
 
   // sample for screenshot
   // shephardDogSample();
