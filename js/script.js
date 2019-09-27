@@ -4,10 +4,10 @@
 // 
 // This is Character Party (https://michaelsboost.github.io/Character-Party/), Created for those that need an idea for a character to make
 
-var str, ranMood, moodLink, jobLink, ranJob,
-    ranDesignObj, categoryLink, grabDesignObj,
-    output, playMusic, ranColor, yesOrNo, ranjobOrChar,
-    ranEyesorAttr, ranCharAttr, drawTopic,
+var str, num, list, alph, ranNum, output, outputStr,
+    playMusic, drawTopic, tempJSON, tempVar,
+    outputStr = "",
+    counter = 1,
     moodsJSON       = [
       "accomplished",
       "admiring",
@@ -3621,18 +3621,21 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "transparent"
     ],
     wearingJSON     = [
-      "dress",
-      "skirt",
-      "apron",
-      "raincoat",
-      "hat",
-      "wig",
-      "afro wig",
-      "cap",
-      "top hat",
-      "suit",
-      "silly outfit",
-      "funny hat",
+      "a dress",
+      "a skirt",
+      "an apron",
+      "a tank top",
+      "a swimsuit",
+      "a raincoat",
+      "a hat",
+      "a wig",
+      "a speedo",
+      "an afro wig",
+      "a cap",
+      "a top hat",
+      "a suit",
+      "a silly outfit",
+      "a funny hat",
       "raggedy clothes"
     ],
     ridingJSON      = [
@@ -3750,6 +3753,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "dagger",
       "desktop computer",
       "die",
+      "dollar bill",
       "door",
       "drum",
       "dvd",
@@ -3804,7 +3808,6 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "microphone",
       "microscope",
       "military medal",
-      "money",
       "money bag",
       "movie camera",
       "musical keyboard",
@@ -3840,6 +3843,7 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "plural ice skates",
       "plural japanese dolls",
       "plural linked paperclips",
+      "plural money",
       "plural scissors",
       "plural shopping bags",
       "plural skis",
@@ -3906,32 +3910,23 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "wrapped gift",
       "wrench"
     ],
-    activityJSON    = [
-      // if eating or driving not holding
-      "driveorno",
-      "holding",
-      "eating",
+    actListJSON     = [
       "wearing",
-      "talking"
-    ],
-    activitysJSON   = [
-      "one",
-      "two",
-      "three"
-    ],
-    driveornoJSON   = [
-      "pulling",
-      "controlling",
-      "riding",
-      "dragging"
+      "talking",
+      "eating",
+      "reading",
+      "anotheraction"
     ],
     talkingJSON     = [
       "on the phone",
       "to a friend",
+      "to a child",
+      "to a parent",
       "to friends",
+      "to parents",
       "to the neighbor",
       "to the neighbors",
-      "to kids",
+      "to children",
       "to a designJSONS"
     ],
     jobOrChar       = [
@@ -3961,10 +3956,6 @@ var str, ranMood, moodLink, jobLink, ranJob,
       "thin",
       "fit",
       "busty"
-    ],
-    yesOrNoJSON     = [
-      "yes",
-      "no"
     ];
 
 // generate a random number
@@ -3989,6 +3980,264 @@ function searchImages(val) {
   return " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ val.toLowerCase().replace(/ /, '+') +"&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
 }
 
+// shuffles array
+function shuffleJSON(a) {
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    x = a[i];
+    a[i] = a[j];
+    a[j] = x;
+  }
+  return a;
+};
+
+// set activity
+function setActivity() {
+//**Wearing A Funny Hat
+//**Wearing A Funny Hat **Riding A Train
+//**Wearing A Funny Hat **Riding A designJSONS **Eating An Apple
+//**Wearing A Funny Hat **Riding A German Shepherd **Eating An Apple
+  
+  var ranWearing = randomNumber(wearingJSON.length);
+  ranWearing     = wearingJSON[ranWearing];
+  
+  var ranEatDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
+  var grabDesignObjEat = designJSONS[""+ ranEatDesignObj +""];
+  var ranEating = randomNumber(ranEatDesignObj.length);
+  ranEating     = grabDesignObjEat[ranEating];
+  
+  var ranReadDesignObj = JSONDesignItems[randomNumber(JSONDesignItems.length)];
+  var grabDesignObjRead = designJSONS[""+ ranReadDesignObj +""];
+  var ranReading = randomNumber(grabDesignObjRead.length);
+  ranReading     = grabDesignObjRead[ranReading];
+
+  // grab json activity
+  num = randomNumber(actListJSON.length);
+  str = actListJSON[num];
+  
+  // detect activity
+  if (str === "wearing") {
+    // detect if starts with a vowel
+    str = str + " " + ranWearing + " " + searchImages(ranWearing);
+  }
+  if (str === "talking") {
+    ranTalking = randomNumber(talkingJSON.length);
+    ranTalking = talkingJSON[ranTalking];
+    ranTalkDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
+    grabDesignObjTalk = designJSONS[""+ ranTalkDesignObj +""];
+    ranTalkTo = randomNumber(grabDesignObjTalk.length);
+    ranTalkTo = grabDesignObjTalk[ranTalkTo];
+    
+    if (ranTalking === "to a designJSONS") {
+      // detect if starts with a vowel
+      alph = ranTalkTo.substring(0, 1).toLowerCase();
+      if (alph === "a" || alph === "e" || alph === "i" || alph === "o" || alph === "u") {
+        ranTalkTo = "an " + ranTalkTo;
+      } else {
+        ranTalkTo = "a " + ranTalkTo;
+      }
+      
+      str = str + " to " + ranTalkTo + " " + searchImages(ranTalkTo + " " + ranTalkDesignObj);
+    } else {
+      str = str + " " + ranTalking;
+    }
+  }
+  if (str === "eating") {
+    // detect if starts with a vowel
+    alph = ranEating.substring(0, 1).toLowerCase();
+    if (alph === "a" || alph === "e" || alph === "i" || alph === "o" || alph === "u") {
+      str = str + " an " + ranEating + " " + searchImages(ranEating + " " + ranEatDesignObj);
+    } else {
+      str = str + " a " + ranEating + " " + searchImages(ranEating + " " + ranEatDesignObj);
+    }
+  }
+  if (str === "reading") {
+    str = str + ' about "' + ranReading + '" ' + searchImages(ranReading + ' ' + ranReadDesignObj);
+  }
+  if (str === "anotheraction") {
+    // randomly select ridingJSON or designJSONS
+    tempJSON = ["controlling", "holding", "riding", "pushing", "pulling", "dragging"];
+    str = randomNumber(tempJSON.length);
+    str = tempJSON[str];
+    
+    if (str === "controlling") {
+      ranConDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
+      grabConDesignObj = designJSONS[""+ ranConDesignObj +""];
+      designConJSONS   = randomNumber(grabConDesignObj.length);
+      designConJSONS   = grabConDesignObj[designConJSONS];
+      ranControlling   = randomNumber(ridingJSON.length);
+      ranControlling   = ridingJSON[ranControlling];
+      
+      // randomly select ridingJSON or designJSONS
+      tempJSON = ["ridingJSON", "designJSONS"]
+      ranJSON = randomNumber(tempJSON.length);
+      
+      if (ranJSON === "ridingJSON") {
+        // detect if starts with a vowel
+        alph = ranControlling.substring(0, 1).toLowerCase();
+        if (alph === "a" || alph === "e" || alph === "i" || alph === "o" || alph === "u") {
+          str = str + " an " + ranControlling + " " + searchImages(ranControlling);
+        } else {
+          str = str + " a " + ranControlling + " " + searchImages(ranControlling);
+        }
+      } else {
+        // detect if starts with a vowel
+        alph = designConJSONS.substring(0, 1).toLowerCase();
+        if (alph === "a" || alph === "e" || alph === "i" || alph === "o" || alph === "u") {
+          str = str + " an " + designConJSONS + " " + searchImages(designConJSONS + " " + ranConDesignObj);
+        } else {
+          str = str + " a " + designConJSONS + " " + searchImages(designConJSONS + " " + ranConDesignObj);
+        }
+      }
+    }
+    if (str === "holding") {
+      ranHolding     = randomNumber(holdingJSON.length);
+      ranHolding     = holdingJSON[ranHolding];
+      
+      // detect if plural or not
+      if (ranHolding.substring(6, 0) === "plural") {
+        // detect if starts with a vowel
+        alph = ranHolding.substring(0, 1).toLowerCase();
+        if (alph === "a" || alph === "e" || alph === "i" || alph === "o" || alph === "u") {
+          ranHolding = "an " + ranHolding;
+        } else {
+          ranHolding = "a " + ranHolding;
+        }
+        str = str + " " + ranHolding;
+      } else {
+        str = str + " a " + ranHolding;
+      }
+
+      str = str + " " + searchImages(ranHolding);
+    }
+    if (str === "riding" || str === "pushing" || str === "pulling" || str === "dragging") {
+      ranActDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
+      grabActDesignObj = designJSONS[""+ ranActDesignObj +""];
+      designActJSONS   = randomNumber(grabActDesignObj.length);
+      designActJSONS   = grabActDesignObj[designActJSONS];
+      ranRiding     = randomNumber(ridingJSON.length);
+      ranRiding     = ridingJSON[ranRiding];
+      
+      // randomly select ridingJSON or designJSONS
+      tempJSON = ["ridingJSON", "designJSONS"]
+      ranJSON = randomNumber(tempJSON.length);
+      
+      if (ranJSON === "ridingJSON") {
+        // detect if starts with a vowel
+        alph = ranRiding.substring(0, 1).toLowerCase();
+        if (alph === "a" || alph === "e" || alph === "i" || alph === "o" || alph === "u") {
+          str = str + " an " + ranRiding + " " + searchImages(ranRiding);
+        } else {
+          str = str + " a " + ranRiding + " " + searchImages(ranRiding);
+        }
+      } else {
+        // detect if starts with a vowel
+        alph = designActJSONS.substring(0, 1).toLowerCase();
+        if (alph === "a" || alph === "e" || alph === "i" || alph === "o" || alph === "u") {
+          str = str + " an " + designActJSONS + " " + searchImages(designActJSONS + " " + ranActDesignObj);
+        } else {
+          str = str + " a " + designActJSONS + " " + searchImages(designActJSONS + " " + ranActDesignObj);
+        }
+      }
+    }
+  }
+
+  // remove list item
+  actListJSON.splice(num, 1);
+
+  // shuffle list
+  shuffleJSON(actListJSON);
+  
+  // set 2nd part of the output string
+  outputStr += str + " ";
+
+  // detect if eyes or attributes
+  var ranEyesorAttr = randomNumber(eyesorAttr.length);
+  ranEyesorAttr     = eyesorAttr[ranEyesorAttr];
+  var ranColor      = randomNumber(colorsJSON.length);
+  ranColor          = colorsJSON[ranColor];
+  var ranCharAttr   = randomNumber(attrJSON.length);
+  ranCharAttr       = attrJSON[ranCharAttr];
+  
+  // randomly choose what to show EyesorAttr from yes/no
+  var yesOrNoJSON = ["yes", "no"];
+  var yesOrNo = randomNumber(yesOrNoJSON.length);
+  yesOrNo = yesOrNoJSON[yesOrNo].toLowerCase();
+  if (ranEyesorAttr === "eyes") {
+    (yesOrNo === "yes") ? ranEyesorAttr = ranColor + " eyed" : ranEyesorAttr = "";
+  } else {
+    (yesOrNo === "yes") ? ranEyesorAttr = ranCharAttr : ranEyesorAttr = "";
+  }
+  
+  var ranMood       = randomNumber(moodsJSON.length);
+  ranMood           = moodsJSON[ranMood];
+  var ranJob        = randomNumber(jobsJSON.length);
+  ranJob            = jobsJSON[ranJob];
+  var ranDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
+  var grabDesignObj = designJSONS[""+ ranDesignObj +""];
+  var moodLink      = searchWeb(ranMood + " characteristic");
+  var jobLink       = searchWeb("what is a " + ranJob);
+  var categoryLink  = searchWeb("what is a " + ranDesignObj);
+  output            = grabDesignObj[ randomNumber(grabDesignObj.length) ];
+  output            = output + searchImages(output + " " + ranDesignObj);
+  
+  // detect if mood starts with a vowel or not
+  str = ranMood.substring(0, 1).toLowerCase();
+  if (str === "a" || str === "e" || str === "i" || str === "o" || str === "u") {
+    ranMood = "an " + ranMood;
+  } else {
+    ranMood = "a " + ranMood;
+  }
+  
+  // set scene from job or character
+  var ranjobOrChar = randomNumber(jobOrChar.length);
+  ranjobOrChar = jobOrChar[ranjobOrChar];
+  
+  // how to display scene
+  function job() {
+    // reposition eyes or attributes
+    if (ranCharAttr.substring(4, 0) === "with") {
+      ranCharAttr = ranJob + jobLink + " " + ranCharAttr;
+    } else {
+      ranCharAttr = ranCharAttr + " " + ranJob + jobLink;
+    }
+    drawTopic = ranMood + moodLink + " " + ranCharAttr
+    
+    // set scene from job
+    character.innerHTML = drawTopic + " " + outputStr;
+    scenario.innerHTML = "Draw: " + drawTopic + " " + outputStr + "<br>&nbsp;";
+  }
+  function character() {
+    // detect if job starts with a vowel or not
+    str = ranJob.substring(0, 1).toLowerCase();
+    if (str === "a" || str === "e" || str === "i" || str === "o" || str === "u") {
+      ranJob = "an " + ranJob;
+    } else {
+      ranJob = "a " + ranJob;
+    }
+    
+    // reposition eyes or attributes
+    if (ranCharAttr.substring(4, 0) === "with") {
+      ranCharAttr = output + " " + ranCharAttr + " ";
+    } else {
+      ranCharAttr = ranCharAttr + " " + output;
+    }
+    drawTopic = ranMood + moodLink + " " + ranCharAttr;
+    
+    // set scene from character
+    character.innerHTML = ranMood + moodLink + " " + drawTopic + " " + outputStr;
+    scenario.innerHTML = "Category: " + ranDesignObj + categoryLink + "<br>Draw: " + drawTopic + " " + outputStr + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
+  }
+  
+  // apply text
+  if (ranjobOrChar === "job") {
+    job();
+  } else {
+    character();
+  }
+}
+
 // character generation
 function init() {
   /*
@@ -4008,87 +4257,35 @@ function init() {
     Draw: A Scared Security Officer **Wearing A Funny Hat **Riding A German Shepherd **Eating An Apple
   */
   
-  // detect if eyes or attributes
-  ranEyesorAttr = randomNumber(eyesorAttr.length);
-  ranEyesorAttr = eyesorAttr[ranEyesorAttr];
-  ranColor      = randomNumber(colorsJSON.length);
-  ranColor      = colorsJSON[ranColor];
-  ranCharAttr   = randomNumber(attrJSON.length);
-  ranCharAttr   = attrJSON[ranCharAttr];
-  
-  // randomly choose what to show from yes/no
-  yesOrNo = randomNumber(yesOrNoJSON.length);
-  yesOrNo = yesOrNoJSON[yesOrNo].toLowerCase();
-  if (ranEyesorAttr === "eyes") {
-    (yesOrNo === "yes") ? ranEyesorAttr = ranColor + " eyed" : ranEyesorAttr = "";
+  // Apply's number of activities for character
+  var activitysJSON = ["none", "show"];
+  activitysNum = randomNumber(activitysJSON.length);
+  activitysNum = activitysJSON[activitysNum];
+  if (activitysNum === "none") {
+    setActivity();
   } else {
-    (yesOrNo === "yes") ? ranEyesorAttr = ranCharAttr : ranEyesorAttr = "";
-  }
-  
-  ranMood       = randomNumber(moodsJSON.length);
-  ranMood       = moodsJSON[ranMood];
-  ranJob        = randomNumber(jobsJSON.length);
-  ranJob        = jobsJSON[ranJob];
-  ranDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
-  grabDesignObj = designJSONS[""+ ranDesignObj +""];
-  moodLink      = searchWeb(ranMood + " characteristic");
-  jobLink       = searchWeb("what is a " + ranJob);
-  categoryLink  = searchWeb("what is a " + ranDesignObj);
-  output        = grabDesignObj[ randomNumber(grabDesignObj.length) ];
-  
-  // with duckduckgo images search link
-  output      = output + searchImages(output + " " + ranDesignObj);
-  
-  // detect if mood starts with a vowel or not
-  str = ranMood.substring(0, 1).toLowerCase();
-  if (str === "a" || str === "e" || str === "i" || str === "o" || str === "u") {
-    ranMood = "an " + ranMood;
-  } else {
-    ranMood = "a " + ranMood;
-  }
-  
-  // set scene from job or character
-  ranjobOrChar  = randomNumber(jobOrChar.length);
-  ranjobOrChar  = jobOrChar[ranjobOrChar];
-  
-  if (ranjobOrChar === "job") {
-    // reposition eyes or attributes
-    if (ranCharAttr.substring(4, 0) === "with") {
-      ranCharAttr = ranJob + jobLink + " " + ranCharAttr;
-    } else {
-      ranCharAttr = ranCharAttr + " " + ranJob + jobLink;
+    // set standard for how many activities to show
+    ranNum = randomNumber(activitysJSON.length);
+
+    // call function x number of times from ranNum
+    function countFunc() {
+      setActivity();
+
+      if (counter < ranNum) {
+        counter++
+        window.setTimeout(countFunc, 0);
+      }
     }
-    drawTopic = ranMood + moodLink + " " + ranCharAttr
-    
-    // set scene from job
-    character.innerHTML = drawTopic;
-    scenario.innerHTML = "Draw: " + drawTopic + "<br>&nbsp;";
-  } else {
-    // detect if job starts with a vowel or not
-    str = ranJob.substring(0, 1).toLowerCase();
-    if (str === "a" || str === "e" || str === "i" || str === "o" || str === "u") {
-      ranJob = "an " + ranJob;
-    } else {
-      ranJob = "a " + ranJob;
-    }
-    
-    // reposition eyes or attributes
-    if (ranCharAttr.substring(4, 0) === "with") {
-      ranCharAttr = output + " " + ranCharAttr + " ";
-    } else {
-      ranCharAttr = ranCharAttr + " " + output;
-    }
-    drawTopic = ranMood + moodLink + " " + ranCharAttr;
-    
-    // set scene from character
-    character.innerHTML = ranMood + moodLink + " " + ranCharAttr;
-    scenario.innerHTML = "Category: " + ranDesignObj + categoryLink + "<br>Draw: " + drawTopic + "<br>Who is " + ranJob + jobLink + "<br>&nbsp;";
+    countFunc();
   }
 
   // sample for screenshot
 //  character.innerHTML = "A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
 //  scenario.innerHTML = "Category: Dogs <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+dogs%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>" + "<br>Draw: A Scared <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=scared+characteristic%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> German Shepherd <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=german+shepherd+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a> <br>Who is a security officer <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q=what+is+security+officer+dogs&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a><br>&nbsp;";
   
+  // reset a few variables
+  actListJSON = ["wearing", "talking", "eating", "reading", "anotheraction"];
+  outputStr = "";
   return false;
 }
 
@@ -4117,5 +4314,8 @@ music.onclick = function() {
 generate.onclick = function() {
   testAnim("character", "animated rubberBand delay-2s");
   testAnim("scenario", "animated bounce delay-2s");
+  testAnim("author", "animated rubberBand delay-2s");
+  
+  // initiate function
   init();
 };
