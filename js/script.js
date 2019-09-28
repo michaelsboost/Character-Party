@@ -4115,9 +4115,12 @@ function setActivity() {
     if (str === "holding") {
       var ranHolding = randomNumber(holdingJSON.length);
       ranHolding     = holdingJSON[ranHolding];
-      
+      str            = ranHolding;
+
       // detect if plural or not
-      if (ranHolding.substring(6, 0) === "plural") {
+      if (ranHolding.substring(7, 0) === "plural ") {
+        ranHolding = ranHolding.substring(7, ranHolding.length);
+      } else {
         // detect if starts with a vowel
         alph = ranHolding.substring(0, 1).toLowerCase();
         if (alph === "a" || alph === "e" || alph === "i" || alph === "o" || alph === "u") {
@@ -4125,12 +4128,9 @@ function setActivity() {
         } else {
           ranHolding = "a " + ranHolding;
         }
-        str = str + " " + ranHolding;
-      } else {
-        str = str + " a " + ranHolding;
       }
 
-      str = str + " " + searchImages(ranHolding);
+      str = str + " " + ranHolding + searchImages(ranHolding);
     }
     if (str === "riding" || str === "pushing" || str === "pulling" || str === "dragging") {
       var ranActDesignObj  = JSONDesignItems[randomNumber(JSONDesignItems.length)];
