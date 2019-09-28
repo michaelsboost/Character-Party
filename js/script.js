@@ -5,11 +5,15 @@
 // This is Character Party (https://michaelsboost.github.io/Character-Party/), Created for those that need an idea for a character to make
 
 var str, num, list, alph, ranNum, output, outputStr,
-    playMusic, drawTopic, tempJSON, tempVar,
+    playMusic, drawTopic, tempJSON, tempVar, myBase64,
     character = document.getElementById("character"),
     scenario  = document.getElementById("scenario"),
     music     = document.getElementById("music"),
     generate  = document.getElementById("generate"),
+    download  = document.getElementById("download"),
+    grablog   = document.getElementById("grablog"),
+    whitefill = document.querySelector(".whitefill"),
+    btnArea   = document.getElementById("btnArea"),
     outputStr = "",
     counter = 1,
     moodsJSON       = [
@@ -139,6 +143,7 @@ var str, num, list, alph, ranNum, output, outputStr,
       "heroic",
       "homeless",
       "hopeful",
+      "horned",
       "horrible",
       "hot",
       "humorous",
@@ -1939,6 +1944,7 @@ var str, num, list, alph, ranNum, output, outputStr,
         "ogre",
         "henchman",
         "hench person",
+        "ballerina",
         "god",
         "demon",
         "monster",
@@ -3635,6 +3641,13 @@ var str, num, list, alph, ranNum, output, outputStr,
       "a swimsuit",
       "a raincoat",
       "a hat",
+      "a tutu",
+      "a tiara",
+      "a crown",
+      "a ski mask",
+      "a ballerina suit",
+      "a business suit",
+      "a rocking chair",
       "a wig",
       "a mask",
       "a speedo",
@@ -3980,12 +3993,12 @@ function testAnim(el, x) {
 
 // search web
 function searchWeb(val) {
-  return " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ val.toLowerCase().replace(/ /, '+') +"%3F&t=h_&ia=web\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  return " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ val.toLowerCase().replace(/ /, '+') +"%3F&t=h_&ia=web\" target=\"_blank\" data-html2canvas-ignore=\"true\"><i class=\"fa fa-external-link\"></i></a>";
 }
 
 // search images
 function searchImages(val) {
-  return " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ val.toLowerCase().replace(/ /, '+') +"&t=h_&iax=images&ia=images\" target=\"_blank\"><i class=\"fa fa-external-link\"></i></a>";
+  return " <a class=\"whitetxt\" href=\"https://duckduckgo.com/?q="+ val.toLowerCase().replace(/ /, '+') +"&t=h_&iax=images&ia=images\" target=\"_blank\" data-html2canvas-ignore=\"true\"><i class=\"fa fa-external-link\"></i></a>";
 }
 
 // shuffles array
@@ -4330,4 +4343,65 @@ generate.onclick = function() {
   
   // initiate function
   init();
+};
+
+// download generated image as image
+download.onclick = function() {
+  // show white background
+  whitefill.style.display = "block";
+  
+  // grab main author text
+  grablog.classList.add("screenshot", "static");
+  var mainAuthorTxt = author.innerHTML;
+  author.innerHTML = "<h2 class=\"whitetxt nomar\">https://michaelsboost.com/Character-Party/</h2>";
+  
+  // hide buttons
+  btnArea.classList.add("hide");
+  
+  // set canvas width to a fixed size
+  grablog.style.width = "1000px";
+  grablog.style.height = "600px";
+  
+  // convert website to image
+  html2canvas(grablog, {
+    allowTaint: true,
+    useCORS: true,
+    foreignObjectRendering: true
+  }).then(function(canvas) {
+    // download canvas image
+    myBase64 = canvas.toDataURL("image/png");
+    var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+    if (iOS === true) {
+      // remove image if already visible
+      var img = new Image();
+      img.crossOrigin = "Anonymous";
+      img.id = "getshot";
+      img.src = myBase64;
+      document.body.appendChild(img);
+
+      var a = document.createElement("a");
+      a.href = getshot.src;
+      a.download = "character-snapshot" + ".png";
+      a.click();
+      document.body.removeChild(img);
+    } else {
+      canvas.toBlob(function(blob) {
+        saveAs(blob, "character-snapshot" + ".png");
+      }, "image/png");
+    }
+  });
+
+  // revert canvas width to 100%
+  grablog.style.width = "";
+  grablog.style.height = "";
+  
+  // show buttons
+  btnArea.classList.remove("hide");
+  
+  // reapply main author text
+  author.innerHTML = mainAuthorTxt;
+  grablog.classList.remove("screenshot", "static");
+
+  // fade out white background
+  $(".whitefill").fadeOut();
 };

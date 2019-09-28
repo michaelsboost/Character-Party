@@ -10,7 +10,7 @@
 a {
   cursor: pointer;
 }
-body {
+body, .screenshot {
   background:
     linear-gradient(135deg, hsla(132.8, 90.61%, 45.23%, 1) 0%, hsla(132.8, 90.61%, 45.23%, 0) 70%),
     linear-gradient(25deg, hsla(196.72, 98.94%, 43.71%, 1) 10%, hsla(196.72, 98.94%, 43.71%, 0) 80%),
@@ -55,11 +55,37 @@ body {
     width: 100%;
   }
 }
-#music {
+#music, #download {
   position: absolute;
-  top: 0;
   right: 0;
   z-index: 1;
   font-size: 2em;
   padding: 5px 14px;
+}
+#music {
+  top: 0;
+}
+#download {
+  margin: 1em;
+  bottom: 0;
+  border-radius: 100%;
+  background: #ff7878;
+  transition: opacity ease 300ms;
+}
+#download:hover {
+  opacity: .75;
+}
+.static {
+  position: static;
+  top: auto;
+  left: auto;
+}
+.whitefill {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 2;
 }

@@ -30,6 +30,8 @@ Character Party uses a number of open source projects to work properly:
 * [Animate.css](https://github.com/daneden/animate.css) - included with [Polyrise](https://github.com/michaelsboost/Polyrise) export
 * [Normalize](https://github.com/necolas/normalize.css) - CSS reset library
 * [Poly UI Kit](https://github.com/Guilh/Poly) - Beautiful and customizable responsive interface library
+* [html2canvas](https://html2canvas.hertzen.com) - Turn viewable canvas into a downloadable image
+* [FileSaver.js](https://github.com/eligrey/FileSaver.js/) - Client-side solution for saving files
 * [Background Music](https://youtu.be/uIYBnfsB37k) - Created by Mattia Cupelli
 
 This app was inspired by [Jazza's Arty Party](https://jazzastudios.com/product/arty-games/).

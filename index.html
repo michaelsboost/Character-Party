@@ -27,13 +27,18 @@ This is Character Party (https://michaelsboost.github.io/Character-Party/), Crea
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <!-- backgrounds -->
+    <div class="whitefill" style="display: none;"></div>
     <div class="bg-image"></div>
+
+    <!-- play music -->
     <a id="music" class="animated slideInDown delay-2s whitetxt fr">
       <i id="musicIcon" class="fa fa-volume-off"></i>
       <audio id="bgMusic" class="hide" src="https://michaelsboost.com/Character-Party/media/music.mp3" controls preload loop></audio>
     </a>
-                
-    <div class="header table bg-overlay3">
+    
+    <!-- display area -->
+    <div id="grablog" class="header table bg-overlay3">
       <div class="cell tc">
         <div class="grid">
           <div class="grid__col--12 nomar">
@@ -45,7 +50,7 @@ This is Character Party (https://michaelsboost.github.io/Character-Party/), Crea
                 </div>
               </h2>
 
-              <div style="margin-bottom: 4em;">
+              <div id="btnArea" style="margin-bottom: 4em;" data-html2canvas-ignore="true">
                 <a id="generate" class="btn--success bounceInUp bounceInUp3s">
                   <i class="fa fa-refresh" style="transform: scale(2);"></i>
                 </a>
@@ -65,9 +70,17 @@ This is Character Party (https://michaelsboost.github.io/Character-Party/), Crea
       </div>
     </div>
     
+    <!-- download result -->
+    <a id="download" class="animated slideInDown delay-2s whitetxt">
+      <i class="fa fa-camera"></i>
+    </a>
+    
+    <script src="libraries/filesaver/Blob.js"></script>
+    <script src="libraries/filesaver/FileSaver.js"></script>
+    <script src="libraries/html2canvas/html2canvas.js"></script>
     <script src="libraries/jquery/jquery.js"></script>
     <script src="js/polyrise.js"></script>
-    <script src="js/detecthttp.js"></script>
+<!--    <script src="js/detecthttp.js"></script>-->
     <script src="js/script.js"></script>
   </body>
 </html>
