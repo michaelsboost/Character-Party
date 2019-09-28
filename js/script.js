@@ -4362,6 +4362,11 @@ download.onclick = function() {
   grablog.style.width = "1000px";
   grablog.style.height = "600px";
   
+  var tempEl = document.createElement("div")
+  tempEl.id = tempEl
+  tempEl.innerHTML = output;
+  var fileName = "character-snapshot" + tempEl.textContent.replace(/ /g, "-").replace(/--/g, "-");
+  
   // convert website to image
   html2canvas(grablog, {
     allowTaint: true,
@@ -4381,12 +4386,12 @@ download.onclick = function() {
 
       var a = document.createElement("a");
       a.href = getshot.src;
-      a.download = "character-snapshot" + ".png";
+      a.download = fileName + ".png";
       a.click();
       document.body.removeChild(img);
     } else {
       canvas.toBlob(function(blob) {
-        saveAs(blob, "character-snapshot" + ".png");
+        saveAs(blob, fileName + ".png");
       }, "image/png");
     }
   });
