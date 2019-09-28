@@ -1928,6 +1928,7 @@ var str, num, list, alph, ranNum, output, outputStr,
         "sea shell",
         "star",
         "snowperson",
+        "silhouette",
         
         "zombie",
         "ghost",
