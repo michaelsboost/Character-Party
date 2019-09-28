@@ -4365,7 +4365,8 @@ download.onclick = function() {
   var tempEl = document.createElement("div")
   tempEl.id = tempEl
   tempEl.innerHTML = output;
-  var fileName = "character-snapshot" + tempEl.textContent.replace(/ /g, "-").replace(/--/g, "-");
+  var fileName = "character-snapshot_" + tempEl.textContent.replace(/ /g, "-").replace(/--/g, "-");
+  fileName = fileName.substring(0, fileName.length - 1);
   
   // convert website to image
   html2canvas(grablog, {
