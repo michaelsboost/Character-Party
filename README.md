@@ -34,7 +34,7 @@ Character Party uses a number of open source projects to work properly:
 * [FileSaver.js](https://github.com/eligrey/FileSaver.js/) - Client-side solution for saving files
 * [Background Music](https://youtu.be/uIYBnfsB37k) - Created by Mattia Cupelli
 
-This app was inspired by [Jazza's Arty Party](https://jazzastudios.com/product/arty-games/).
+This app was inspired by [Jazza's Arty Party](https://jazzastudios.com/product/arty-games/) and [Protobot](http://protobot.org/).
 
 Development
 -------------
