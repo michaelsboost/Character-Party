@@ -43,6 +43,9 @@ Want to contribute? Great!
 
 You can submit a pull request or simply share the project :)
 
+*As of October 11th, 2019 Character Party is no longer an active project.
+All updates as of that date and on are solely contributor based implementations.*
+
 Of course, Character Party is free and open source (I even ported it to [Codepen](https://codepen.io/michaelsboost/pen/bGbZJKj?editors=0100)), so you can always fork the project and have fun :)
 
 [![ko-fi](https://az743702.vo.msecnd.net/cdn/kofi2.png?v=0)](https://ko-fi.com/michaelsboost)
