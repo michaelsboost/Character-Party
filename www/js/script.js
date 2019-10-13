@@ -4,8 +4,8 @@
 // 
 // This is Character Party (https://michaelsboost.github.io/Character-Party/), Created for those that need an idea for a character to make
 
-var str, num, list, alph, ranNum, output, outputStr,
-    playMusic, drawTopic, tempJSON, tempVar, myBase64,
+var str, num, list, alph, ranNum, output, outputStr, playMusic,
+    musicStatus, drawTopic, tempJSON, tempVar, myBase64,
     character = document.getElementById("character"),
     scenario  = document.getElementById("scenario"),
     music     = document.getElementById("music"),
@@ -4589,6 +4589,21 @@ music.onclick = function() {
   }
   return false;
 };
+
+// app goes background
+document.addEventListener("pause", function() {
+  if (!bgMusic.paused) {
+    musicStatus = true;
+    bgMusic.pause();
+  }
+}, false);
+
+// app goes foreground
+document.addEventListener("resume", function() {
+  if (musicStatus === true) {
+    bgMusic.play();
+  }
+}, false);
 
 // generate character and reset animation upon button click
 generate.onclick = function() {
