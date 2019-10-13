@@ -36,6 +36,8 @@ Character Party uses a number of open source projects to work properly:
 
 This app was inspired by [Jazza's Arty Party](https://jazzastudios.com/product/arty-games/) and [Protobot](http://protobot.org/).
 
+[![Get it on Google Play!](https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.webdgap.characterparty)
+
 Development
 -------------
 
