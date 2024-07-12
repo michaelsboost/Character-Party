@@ -25,8 +25,8 @@
     <link rel="apple-touch-icon" href="imgs/logo.svg">
     <link rel="stylesheet" href="dist/style.css">
   </head>
-  <body class="absolute inset-0">
-    <main x-data="App()" x-init="generate()" class="h-full text-white text-center grid grid-cols-1 gap-2 items-center font-thin">
+  <body>
+    <main x-data="App()" x-init="generate()" class="absolute inset-0 text-white text-center grid grid-cols-1 gap-2 items-center font-thin">
       <div class="absolute inset-0 bg-gradient-to-r from-emerald-700 to-cyan-700"></div>
       <div class="relative m-auto container">
         <header>
@@ -52,7 +52,7 @@
           Made with <i x-html="icons.heart" class="mx-1 relative -top-[.1rem] text-red-400"></i> by <a href="https://michaelsboost.com/" target="_blank" class="border-0 border-b border-solid pb-1">Michael Schwartz</a>
         </footer>
       </div>
-    </div>
+    </main>
 
     <script src="libraries/alpinejs/alpinejs.js" defer></script>
     <script src="App.js"></script>
