@@ -8,12 +8,12 @@ This app is capable of generating not just millions but billions of different co
 Screenshot:
 -------------
 
-![](https://raw.githubusercontent.com/michaelsboost/Character-Party/gh-pages/screenshot.png)
+![](https://raw.githubusercontent.com/michaelsboost/Character-Party/gh-pages/imgs/screenshot.png)
 
 Version
 -------------
 
-0.0.1
+0.0.2
 
 License
 -------------
@@ -25,30 +25,22 @@ Tech
 
 Character Party uses a number of open source projects to work properly:
 
-* [Polyrise](https://github.com/michaelsboost/Polyrise) - Web layout generated with Polyrise
-* [jQuery](http://jquery.com/) - included with [Polyrise](https://github.com/michaelsboost/Polyrise) export
-* [Animate.css](https://github.com/daneden/animate.css) - included with [Polyrise](https://github.com/michaelsboost/Polyrise) export
-* [Normalize](https://github.com/necolas/normalize.css) - CSS reset library
-* [Poly UI Kit](https://github.com/Guilh/Poly) - Beautiful and customizable responsive interface library
-* [html2canvas](https://html2canvas.hertzen.com) - Turn viewable canvas into a downloadable image
-* [FileSaver.js](https://github.com/eligrey/FileSaver.js/) - Client-side solution for saving files
-* [Background Music](https://youtu.be/uIYBnfsB37k) - Created by Mattia Cupelli
+* [Alpine.js](https://alpinejs.dev/) - Your new, lightweight, JavaScript framework.
+* [TailwindCSS](https://tailwindcss.com/) - A utility-first CSS framework packed with classes like ``flex, pt-4, text-center and rotate-90`` that can be composed to build any design, directly in your markup.
 
 This app was inspired by [Jazza's Arty Party](https://jazzastudios.com/product/arty-games/) and [Protobot](http://protobot.org/).
-
-[![Get it on Google Play!](https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.webdgap.characterparty)
 
 Development
 -------------
 
 Want to contribute? Great!  
 
-You can submit a pull request or simply share the project :)
+You can submit a pull request or simply share the project ☺
 
-*As of October 11th, 2019 Character Party is no longer an active project.
+*As of July 12th, 2024 Character Party is no longer an active project.
 All updates as of that date and on are solely contributor based implementations.*
 
-Of course, Character Party is free and open source (I even ported it to [Codepen](https://codepen.io/michaelsboost/pen/bGbZJKj?editors=0100)), so you can always fork the project and have fun :)
+Of course, Character Party is free and open source (I even ported it to [Codepen](https://codepen.io/michaelsboost/pen/bGbZJKj?editors=0100)), so you can always fork the project and have fun ☺
 
 [![ko-fi](https://az743702.vo.msecnd.net/cdn/kofi2.png?v=0)](https://ko-fi.com/michaelsboost)
 
