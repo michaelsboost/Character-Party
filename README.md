@@ -1,9 +1,7 @@
-Michael's Character Party
+Character Party
 ===================
 
-Character Party can be a handy tool you can utilize if you’re having difficulty coming up with an idea of a character to make.
-
-This app is capable of generating not just millions but billions of different combinations of characters, job titles, moods you would’ve never thought about combining together. Unsure what that animal or category is? No problem that’s what the hyperlink is for so you can research more of that animal for your character.
+Character Party is a tool designed to help you brainstorm character ideas by generating a multitude of unique combinations. Whether you're looking for a quirky job title, a distinct mood, or an interesting animal, this app has got you covered. Explore hyperlinks to learn more about each category and animal to fuel your creativity.
 
 Screenshot:
 -------------
@@ -13,7 +11,7 @@ Screenshot:
 Version
 -------------
 
-0.0.2
+0.0.3
 
 License
 -------------
@@ -23,9 +21,9 @@ MIT
 Tech
 -------------
 
-Character Party uses a number of open source projects to work properly:
+Character Party leverages several open-source technologies:
 
-* [Alpine.js](https://alpinejs.dev/) - Your new, lightweight, JavaScript framework.
+* [Hyperapp](https://github.com/jorgebucaran/hyperapp?tab=readme-ov-file) - A minimalist JavaScript framework.
 * [TailwindCSS](https://tailwindcss.com/) - A utility-first CSS framework packed with classes like ``flex, pt-4, text-center and rotate-90`` that can be composed to build any design, directly in your markup.
 
 This app was inspired by [Jazza's Arty Party](https://jazzastudios.com/product/arty-games/) and [Protobot](http://protobot.org/).
@@ -37,7 +35,7 @@ Want to contribute? Great!
 
 You can submit a pull request or simply share the project ☺
 
-*As of July 12th, 2024 Character Party is no longer an active project.
+*As of September 9th, 2024 Character Party is no longer an active project.
 All updates as of that date and on are solely contributor based implementations.*
 
 Of course, Character Party is free and open source (I even ported it to [Codepen](https://codepen.io/michaelsboost/pen/bGbZJKj?editors=0100)), so you can always fork the project and have fun ☺

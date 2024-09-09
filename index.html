@@ -1,60 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="dark">
   <head>
     <title>Character Party</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, interactive-widget=resizes-content">
-    <meta name="description" content="Character Party was created for those that need an idea for a character to make.">
+    <meta name="description" content="Character Party is a tool for generating unique character ideas by combining various moods, job titles, and categories. Explore endless combinations and discover inspiration for your next creative project!">
     <meta name="author" content="Michael Schwartz">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Character Party">
-    <meta name="theme-color" content="#13171f">
+    <meta name="theme-color" content="hsl(205deg 18.75% 87.45%)">
     <meta name="apple-mobile-web-app-title" content="Character Party">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-starturl" content="./index.html">
-    <meta name="msapplication-navbutton-color" content="#13171f">
+    <meta name="msapplication-navbutton-color" content="hsl(205deg 18.75% 87.45%)">
     <meta property="og:url" content="https://michaelsboost.com/Character-Party" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Character Party" />
-    <meta property="og:description" content="Character Party was created for those that need an idea for a character to make." />
+    <meta property="og:description" content="Character Party is a tool for generating unique character ideas by combining various moods, job titles, and categories. Explore endless combinations and discover inspiration for your next creative project!" />
     <meta property="og:image"       content="https://raw.githubusercontent.com/michaelsboost/Character-Party/gh-pages/imgs/screenshot.png" />
     <link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" type="image/x-icon" href="imgs/logo.svg">
     <link rel="icon" type="image/svg+xml" href="imgs/logo.svg" />
     <link rel="apple-touch-icon" href="imgs/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="dist/style.css">
   </head>
   <body>
-    <main x-data="App()" x-init="generate()" class="absolute inset-0 text-white text-center grid grid-cols-1 gap-2 items-center font-thin">
-      <div class="absolute inset-0 bg-gradient-to-r from-emerald-700 to-cyan-700"></div>
-      <div class="relative m-auto container">
-        <header>
-          <hgroup class="m-4 capitalize">
-            <h1 class="text-4xl mb-4" x-html="output.name"></h1>
-            <h2 class="text-xl">
-              <div class="mb-2">Category: <span x-html="output.category"></span></div>
-              <div><span x-html="output.profession"></span></div>
-            </h2>
-          </hgroup>
-        </header>
-        <div class="mb-4">
-          <button 
-            class="rounded-md border border-solid border-green-500 bg-green-500 py-[.85rem] px-12 mr-4"
-            @click="generate()">
-            <span x-html="icons.share"></span>
-          </button>
-          <a class="uppercase rounded-md border border-solid border-blue-500 bg-blue-500 p-[1rem]" href="https://github.com/michaelsboost/Character-Party" target="_blank">
-            contribute
-          </a>
-        </div>
-        <footer>
-          Made with <i x-html="icons.heart" class="mx-1 relative -top-[.1rem] text-red-400"></i> by <a href="https://michaelsboost.com/" target="_blank" class="border-0 border-b border-solid pb-1">Michael Schwartz</a>
-        </footer>
-      </div>
-    </main>
+    <div id="root"></div>
 
-    <script src="libraries/alpinejs/alpinejs.js" defer></script>
-    <script src="App.js"></script>
+    <script src="dist/script.js" type="module"></script>
+    <script src="https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js"></script>
+    <script>
+      // service worker for progressive web app
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+        })
+      }
+    </script>
   </body>
 </html>
