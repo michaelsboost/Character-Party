@@ -215,3 +215,6 @@ body {
   transform-origin: -4vw 9vh;
   box-shadow: -100vmin 0 12.942049471603575vmin currentColor;
 }
+  @tailwind base;
+@tailwind components;
+@tailwind utilities;

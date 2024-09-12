@@ -23,7 +23,7 @@ Tech
 
 Character Party leverages several open-source technologies:
 
-* [Hyperapp](https://github.com/jorgebucaran/hyperapp?tab=readme-ov-file) - A minimalist JavaScript framework.
+* [Mithril](https://mithril.js.org/) - A modern JavaScript framework for building user interfaces.
 * [TailwindCSS](https://tailwindcss.com/) - A utility-first CSS framework packed with classes like ``flex, pt-4, text-center and rotate-90`` that can be composed to build any design, directly in your markup.
 
 This app was inspired by [Jazza's Arty Party](https://jazzastudios.com/product/arty-games/) and [Protobot](http://protobot.org/).
@@ -35,7 +35,7 @@ Want to contribute? Great!
 
 You can submit a pull request or simply share the project ☺
 
-*As of September 9th, 2024 Character Party is no longer an active project.
+*As of September 12th, 2024 Character Party is no longer an active project.
 All updates as of that date and on are solely contributor based implementations.*
 
 Of course, Character Party is free and open source (I even ported it to [Codepen](https://codepen.io/michaelsboost/pen/bGbZJKj?editors=0100)), so you can always fork the project and have fun ☺
