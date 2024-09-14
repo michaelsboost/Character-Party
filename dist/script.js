@@ -1,6 +1,3 @@
-import { Application } from "https://unpkg.com/@hotwired/stimulus?module";
-import htm from "https://unpkg.com/htm?module";
-
 // Define the data object here
 const data = {
   moods: [
@@ -3537,52 +3534,39 @@ const data = {
   ]
 };
 
-const html = htm.bind(String.raw);
+const connect = () => {
+  this.categories = data.categories;
+  this.characters = data.characters;
+  this.moods = data.moods;
+  this.jobs = data.jobs;
+  this.generate();
+};
+const randomNum = n => {
+  return Math.floor(Math.random() * n);
+};
+const startsWithVowel = str => {
+  return /^[aeiou]/i.test(str);
+};
+const searchWeb = val => {
+  return `<a class="border-0 border-b border-solid border-black pb-1" href="https://duckduckgo.com/?q=${val.toLowerCase().replace(/ /, '+')}%3F&t=h_&ia=web" target="_blank">${val}</a>`;
+};
+const searchPics = val => {
+  return `<a class="border-0 border-b border-solid border-black pb-1" href="https://duckduckgo.com/?q=${val.toLowerCase().replace(/ /, '+')}&t=h_&iax=images&ia=images" target="_blank">${val}</a>`;
+};
+window.generate = () => {
+  const CharactersCategory = randomNum(data.categories.length);
+  const category = data.categories[CharactersCategory];
+  const CharacterCategoryArray = randomNum(data.characters[category].length);
+  const CharacterCategoryArrayItem = data.characters[category][CharacterCategoryArray];
 
-// Stimulus application setup
-const application = Application.start();
+  let mood = data.moods[randomNum(data.moods.length)];
+  mood = startsWithVowel(mood) ? `An ${mood}` : `A ${mood}`;
 
-application.register("app", class extends Stimulus.Controller {
-  static targets = ["name", "category", "profession"];
+  let profession = data.jobs[randomNum(data.jobs.length)];
+  profession = startsWithVowel(profession) ? `Who is an ${searchWeb(profession)}` : `Who is a ${searchWeb(profession)}`;
 
-  connect() {
-    this.categories = data.categories;
-    this.characters = data.characters;
-    this.moods = data.moods;
-    this.jobs = data.jobs;
-    this.generate();
-  }
-
-  randomNum(n) {
-    return Math.floor(Math.random() * n);
-  }
-
-  startsWithVowel(str) {
-    return /^[aeiou]/i.test(str);
-  }
-
-  searchWeb(val) {
-    return `<a class="border-0 border-b border-solid border-black pb-1" href="https://duckduckgo.com/?q=${val.toLowerCase().replace(/ /, '+')}%3F&t=h_&ia=web" target="_blank">${val}</a>`;
-  }
-
-  searchPics(val) {
-    return `<a class="border-0 border-b border-solid border-black pb-1" href="https://duckduckgo.com/?q=${val.toLowerCase().replace(/ /, '+')}&t=h_&iax=images&ia=images" target="_blank">${val}</a>`;
-  }
-
-  generate() {
-    const CharactersCategory = this.randomNum(this.categories.length);
-    const category = this.categories[CharactersCategory];
-    const CharacterCategoryArray = this.randomNum(this.characters[category].length);
-    const CharacterCategoryArrayItem = this.characters[category][CharacterCategoryArray];
-
-    let mood = this.moods[this.randomNum(this.moods.length)];
-    mood = this.startsWithVowel(mood) ? `An ${mood}` : `A ${mood}`;
-
-    let profession = this.jobs[this.randomNum(this.jobs.length)];
-    profession = this.startsWithVowel(profession) ? `Who is an ${this.searchWeb(profession)}` : `Who is a ${this.searchWeb(profession)}`;
-
-    this.nameTarget.innerHTML = `${mood} ${this.searchPics(CharacterCategoryArrayItem)}`;
-    this.categoryTarget.innerHTML = this.searchWeb(category);
-    this.professionTarget.innerHTML = profession;
-  }
-});
+  document.getElementById('nameTarget').innerHTML = `${mood} ${searchPics(CharacterCategoryArrayItem)}`;
+  document.getElementById('categoryTarget').innerHTML = searchWeb(category);
+  document.getElementById('professionTarget').innerHTML = profession;
+};
+generate();
