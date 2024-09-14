@@ -23,7 +23,7 @@ Tech
 
 Character Party leverages several open-source technologies:
 
-* [Mithril](https://mithril.js.org/) - A modern JavaScript framework for building user interfaces.
+* [Stimulus](https://stimulus.hotwired.dev/) - A lightweight JavaScript framework designed to add behavior to static HTML, keeping the HTML and JavaScript tightly coupled and simple to manage. Ideal for progressively enhancing web applications.
 * [TailwindCSS](https://tailwindcss.com/) - A utility-first CSS framework packed with classes like ``flex, pt-4, text-center and rotate-90`` that can be composed to build any design, directly in your markup.
 
 This app was inspired by [Jazza's Arty Party](https://jazzastudios.com/product/arty-games/) and [Protobot](http://protobot.org/).
