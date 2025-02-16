@@ -4,8 +4,8 @@
   "display": "standalone",
   "start_url": "./index.html",
   "lang": "en-US",
-  "name": "Character Party",
-  "short_name": "Character Party",
+  "name": "characterparty",
+  "short_name": "characterparty",
   "description": "Character Party is a tool for generating unique character ideas by combining various moods, job titles, and categories. Explore endless combinations and discover inspiration for your next creative project!",
   "icons": [
     {

@@ -11,7 +11,7 @@ Screenshot:
 Version
 -------------
 
-0.0.3
+0.0.4
 
 License
 -------------
@@ -24,6 +24,7 @@ Tech
 Character Party leverages several open-source technologies:
 
 * [TailwindCSS](https://tailwindcss.com/) - A utility-first CSS framework packed with classes like ``flex, pt-4, text-center and rotate-90`` that can be composed to build any design, directly in your markup.
+* [Mithril.js](https://mithril.js.org/) - A modern client-side JavaScript framework for building single-page applications, known for its minimalistic API and performance.
 
 This app was inspired by [Jazza's Arty Party](https://jazzastudios.com/product/arty-games/) and [Protobot](http://protobot.org/).
 

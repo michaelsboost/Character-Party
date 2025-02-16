@@ -8,6 +8,8 @@ export default {
     name: 'characterparty'
   },
   plugins: [
+    
+    
     terser() // minifies the JavaScript
   ]
 };

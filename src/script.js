@@ -1,4 +1,6 @@
-// Define the data object here
+import htm from 'https://unpkg.com/htm?module'
+const html = htm.bind(m)
+
 const data = {
   moods: [
     "accomplished",
@@ -3534,26 +3536,20 @@ const data = {
   ]
 };
 
-const connect = () => {
-  this.categories = data.categories;
-  this.characters = data.characters;
-  this.moods = data.moods;
-  this.jobs = data.jobs;
-  this.generate();
-};
 const randomNum = n => {
-  return Math.floor(Math.random() * n);
-};
-const startsWithVowel = str => {
-  return /^[aeiou]/i.test(str);
-};
+  return Math.floor( Math.random() * n );
+}
 const searchWeb = val => {
   return `<a class="border-0 border-b border-solid border-black pb-1" href="https://duckduckgo.com/?q=${val.toLowerCase().replace(/ /, '+')}%3F&t=h_&ia=web" target="_blank">${val}</a>`;
-};
+}
 const searchPics = val => {
   return `<a class="border-0 border-b border-solid border-black pb-1" href="https://duckduckgo.com/?q=${val.toLowerCase().replace(/ /, '+')}&t=h_&iax=images&ia=images" target="_blank">${val}</a>`;
-};
-window.generate = () => {
+}
+const startsWithVowel = str => {
+  // Regular expression to match any vowel at the beginning of the string
+  return /^[aeiou]/i.test(str);
+}
+const generate = state => {
   const CharactersCategory = randomNum(data.categories.length);
   const category = data.categories[CharactersCategory];
   const CharacterCategoryArray = randomNum(data.characters[category].length);
@@ -3565,8 +3561,61 @@ window.generate = () => {
   let profession = data.jobs[randomNum(data.jobs.length)];
   profession = startsWithVowel(profession) ? `Who is an ${searchWeb(profession)}` : `Who is a ${searchWeb(profession)}`;
 
-  document.getElementById('nameTarget').innerHTML = `${mood} ${searchPics(CharacterCategoryArrayItem)}`;
-  document.getElementById('categoryTarget').innerHTML = searchWeb(category);
-  document.getElementById('professionTarget').innerHTML = profession;
+  return {
+    ...state,
+    name: `${mood} ${searchPics(CharacterCategoryArrayItem)}`,
+    category: searchWeb(category),
+    profession: profession
+  };
 };
-generate();
+
+const App = {
+  oninit: vnode => {
+    vnode.state.character = generate();
+  },
+  view: vnode => html`
+    <main class="absolute inset-0 text-black text-center grid grid-cols-1 gap-2 items-center font-thin">
+      <div class="background">
+        ${Array.from({ length: 20 }, (_, i) => html`<span key=${i}></span>`)}
+      </div>
+      <div class="relative m-auto container">
+        <header>
+          <hgroup class="m-4 capitalize">
+            <h1 class="text-5xl mb-4" innerHTML=${vnode.state.character.name}></h1>
+            <h2 class="text-xl">
+              <div class="my-3">Category: <span innerHTML=${vnode.state.character.category}></span></div>
+              <div innerHTML=${vnode.state.character.profession}></div>
+            </h2>
+          </hgroup>
+        </header>
+        <div class="flex mb-4">
+          <div class="flex items-center gap-4 m-auto">
+            <button 
+              aria-label="generate a character idea"
+              name="generate a character idea"
+              class="rounded-md text-white border border-solid border-[#27b159] bg-[#27b159] py-[1.15rem] px-12"
+              onclick=${() => vnode.state.character = generate()}>
+              <span>
+                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13.5A7.5 7.5 0 1 1 11.5 6H20m0 0l-3-3m3 3l-3 3"></path>
+                </svg>
+              </span>
+            </button>
+            <a class="uppercase rounded-md text-white border border-solid border-[#306ed3] bg-[#306ed3] p-[1rem]" href="https://github.com/michaelsboost/Character-Party" target="_blank">
+              contribute
+            </a>
+          </div>
+        </div>
+        <footer>
+          Made with 
+          <svg class="inline-block h-5 mx-1 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037.033l.034-.03a6 6 0 0 1 4.733-1.44l.246.036a6 6 0 0 1 3.364 10.008l-.18.185l-.048.041l-7.45 7.379a1 1 0 0 1-1.313.082l-.094-.082l-7.493-7.422A6 6 0 0 1 6.979 3.074"/>
+          </svg> 
+          by <a href="https://michaelsboost.com/" target="_blank" class="border-0 border-b border-solid border-black pb-1">Michael Schwartz</a>
+        </footer>
+      </div>
+    </main>
+  `
+};
+
+m.mount(document.getElementById('root'), App);

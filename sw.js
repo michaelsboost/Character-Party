@@ -4,7 +4,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox
 const { registerRoute } = workbox.routing;
 const { CacheFirst } = workbox.strategies;
 
-const cacheName = 'CharacterParty-cache';
+const cacheName = 'characterparty-cache';
 
 workbox.routing.registerRoute(
 ({ request }) => request.destination === 'script' ||
